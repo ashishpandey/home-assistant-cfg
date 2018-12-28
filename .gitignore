@@ -1,0 +1,13 @@
+# ignore everything
+*
+
+# dont ignore subdirectories, so we can recurse
+!*/
+
+# But not the below
+!README.md
+!.gitignore
+!**/*.yaml
+
+# And of course no secrets
+secrets.yaml

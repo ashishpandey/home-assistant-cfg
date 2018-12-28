@@ -1,0 +1,34 @@
+lr_spots:
+  name: LR Spots
+  entities:
+  - light.lr_spots_front
+  - light.lr_spots_rear
+theater_room:
+  name: Theater Room
+  entities:
+  - light.lr_cove
+  - light.lr_curtain
+  - light.sofa_light
+  - light.accent_strip
+dining_room:
+  name: Dining Room
+  entities:
+  - light.dining_overhead
+  - light.dining_lamp
+living_room:
+  name: Living Room
+  entities:
+  - group.theater_room
+  - group.dining_room
+  - group.lr_spots
+bed_room:
+  name: Bed Room
+  entities:
+  - light.bedroom_cove
+  - light.candle
+guest_room:
+  name: Guest Room
+  entities:
+  - light.fan
+  - light.diya 
+

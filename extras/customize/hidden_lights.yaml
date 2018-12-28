@@ -1,0 +1,31 @@
+"light.bedroom_head_cove":
+  hidden: true
+"light.bedroom_foot_cove": 
+  hidden: true
+light.dining_window:
+  hidden: true
+light.dining_center:
+  hidden: true
+light.dining_lamp_2:
+  hidden: true
+light.dining_room:
+  hidden: true
+light.fan_1:
+  hidden: true
+light.fan_2:
+  hidden: true
+light.fan_3:
+  hidden: true
+light.livingdining:
+  hidden: true
+light.lr_cove_front:
+  hidden: true
+light.lr_cove_back:
+  hidden: true
+light.lr_curtain_strip:
+  hidden: true
+light.lr_top:
+  hidden: true
+light.sofa_light_2:
+  hidden: true
+

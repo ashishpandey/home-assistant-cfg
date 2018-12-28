@@ -1,0 +1,45 @@
+- platform: template
+  lights:
+    lr_spots_front: 
+      friendly_name: "LR Spots Front"
+      value_template: >-
+        {% if(is_state('sensor.lr_spots_front_level', '0')) %}
+          off
+        {% else %}
+          on
+        {% endif %}
+      turn_on:
+        service: rest_command.lr_spots_front_set_brightness
+        data:
+          brightness: 3
+      turn_off:
+        service: rest_command.lr_spots_front_set_brightness
+        data:
+          brightness: 0
+      set_level:
+        service: rest_command.lr_spots_front_set_brightness
+        data_template:
+          brightness: "{{ (brightness / 255 * 10)|int }}"
+      level_template: "{{ (states('sensor.lr_spots_front_level')|float / 10 * 255)|int }}"
+    lr_spots_rear: 
+      friendly_name: "LR Spots Rear"
+      value_template: >-
+        {% if(is_state('sensor.lr_spots_rear_level', '0')) %}
+          off
+        {% else %}
+          on
+        {% endif %}
+      turn_on:
+        service: rest_command.lr_spots_rear_set_brightness
+        data:
+          brightness: 3
+      turn_off:
+        service: rest_command.lr_spots_rear_set_brightness
+        data:
+          brightness: 0
+      set_level:
+        service: rest_command.lr_spots_rear_set_brightness
+        data_template:
+          brightness: "{{ (brightness / 255 * 10)|int }}"
+      level_template: "{{ (states('sensor.lr_spots_rear_level')|float / 10 * 255)|int }}"
+           

@@ -1,0 +1,20 @@
+expose_by_default: false
+off_maps_to_on_domains:
+  - scene
+  - script
+entities:
+  light.lr_spots:
+    name: Living Room Spots
+    hidden: false
+  switch.tplink:
+    name: Christmas Light
+    hidden: false
+  script.normal:
+    name: Normal Lights
+    hidden: false
+  script.cozy:
+    name: Cozy Lights
+    hidden: false
+  script.theater:
+    name: Theater Lights
+    hidden: false

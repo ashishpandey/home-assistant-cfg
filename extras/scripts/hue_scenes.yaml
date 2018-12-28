@@ -1,0 +1,20 @@
+theater:
+  sequence:
+  - service: hue.hue_activate_scene
+    data:
+      group_name: "Living+Dining"
+      scene_name: "Theater"
+normal:
+  sequence:
+  - service: hue.hue_activate_scene
+    data:
+      group_name: "Living+Dining"
+      scene_name: "Normal"
+cozy:
+  sequence:
+  - service: hue.hue_activate_scene
+    data:
+      group_name: "Living+Dining"
+      scene_name: "Cozy"
+
+
