@@ -55,7 +55,8 @@ sun:
 
 # Text to speech
 tts:
-  - platform: google
+  - platform: google_translate
+    service_name: google_say
 
 # Cloud
 cloud:
@@ -68,4 +69,5 @@ rest_command: !include_dir_merge_named extras/rest_commands/
 sensor: !include_dir_merge_list extras/sensors/
 switch: !include_dir_merge_list extras/switches/
 light: !include_dir_merge_list extras/lights/
+tplink: !include extras/tplink.yaml
 

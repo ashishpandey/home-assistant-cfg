@@ -1,0 +1,9 @@
+- platform: efergy
+  app_token: !secret efergy_token
+  utc_offset: 8
+  monitored_variables:
+  - type: instant_readings
+  - type: amount
+    period: day
+  - type: budget
+
