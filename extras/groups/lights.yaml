@@ -21,6 +21,7 @@ living_room:
   - group.theater_room
   - group.dining_room
   - group.lr_spots
+  - switch.my_smart_plug
 bed_room:
   name: Bed Room
   entities:

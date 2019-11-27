@@ -8,7 +8,7 @@ entities:
   light.lr_spots:
     name: Living Room Spots
     hidden: false
-  switch.tplink:
+  switch.my_smart_plug:
     name: Christmas Light
     hidden: false
   script.normal:
