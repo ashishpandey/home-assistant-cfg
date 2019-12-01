@@ -7,3 +7,6 @@ My [Home Assistant](https://www.home-assistant.io/) Configuration
 _**Perennially** Work In Progress_
 
 > Needs a `secrets.yaml` to complete the configuration
+
+for emulated_hue, need to apply patch via deploy_patch.sh
+ 
