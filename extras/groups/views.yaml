@@ -1,5 +1,4 @@
 living_room_view:
-  view: true
   name: Living Room
   entities:
   - group.theater_room
@@ -7,7 +6,6 @@ living_room_view:
   - group.lr_spots
 
 bedrooms_view:
-  view: true
   name: Bedrooms
   entities:
   - group.bed_room
