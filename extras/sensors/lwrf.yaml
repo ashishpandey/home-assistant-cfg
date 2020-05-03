@@ -1,10 +1,10 @@
 - platform: rest
-  resource: http://192.168.1.21:88/api/dimmer
+  resource: http://192.168.1.21:8071/api/dimmer
   name: LR Spots Rear Level
   value_template: "{{ value }}"
   
 - platform: rest
-  resource: http://192.168.1.21:89/api/dimmer
+  resource: http://192.168.1.21:8072/api/dimmer
   name: LR Spots Front Level
   value_template: "{{ value }}"
   

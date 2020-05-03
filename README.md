@@ -10,3 +10,5 @@ _**Perennially** Work In Progress_
 
 for emulated_hue, need to apply patch via deploy_patch.sh
  
+can work with this git repo cloned under /config
+
