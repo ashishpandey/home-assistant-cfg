@@ -5,7 +5,7 @@ off_maps_to_on_domains:
   - scene
   - script
 entities:
-  light.lr_spots:
+  group.lr_spots:
     name: Living Room Spots
     hidden: false
   switch.my_smart_plug:
