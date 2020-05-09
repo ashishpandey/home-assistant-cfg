@@ -21,6 +21,10 @@ system_health:
 # Enables the frontend
 frontend:
 
+# manage frontend in code
+lovelace:
+  mode: yaml
+
 # Enables configuration UI
 config:
 
