@@ -1,0 +1,7 @@
+mode: yaml
+dashboards:
+  lovelace-livingroom: # Needs to contain a hyphen (-)
+    mode: yaml
+    title: Living Room
+    filename: extras/dashboards/living_room.yaml
+    show_in_sidebar: true

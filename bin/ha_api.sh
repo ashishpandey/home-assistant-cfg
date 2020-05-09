@@ -23,6 +23,10 @@ case "$1" in
     echo "Checking config... "
     call_api POST services/homeassistant/check_config
     ;;
+"retheme")
+    echo "Reloading themes... "
+    call_api POST services/frontend/reload_themes
+    ;;
 "services")
     echo "Listing services... "
     call_api GET services

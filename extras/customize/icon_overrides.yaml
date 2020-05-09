@@ -1,0 +1,7 @@
+light.dining_lamp:
+  icon: mdi:floor-lamp
+light.dining_overhead:
+  icon: mdi:ceiling-light
+switch.my_smart_plug:
+  title: Smart Plug
+  icon: mdi:power-socket-uk

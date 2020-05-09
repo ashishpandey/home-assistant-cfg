@@ -1,0 +1,96 @@
+path: living_room
+title: Living Room
+theme: dark-mode
+badges:
+- entity: sensor.lr_spots_rear_level
+- entity: sensor.lr_spots_front_level
+cards:
+- type: entities
+  entities:
+    - entity: light.lr_spots_front
+      name: Front
+    - entity: light.lr_spots_rear
+      name: Rear
+  title: LR Spots
+  show_header_toggle: true
+- type: entities
+  entities:
+    - light.lr_cove
+    - light.lr_curtain
+    - light.sofa_light
+    - light.accent_strip
+  title: Theater Room
+  show_header_toggle: true
+- type: entities
+  entities:
+    - light.dining_overhead
+    - light.dining_lamp
+  title: Dining Room
+  show_header_toggle: true
+- type: entities
+  entities:
+    - group.theater_room
+    - group.dining_room
+    - group.lr_spots
+    - switch.my_smart_plug
+  title: Living Room
+  show_header_toggle: true
+- type: entities
+  entities:
+    - light.bedroom_cove
+    - light.candle
+  title: Bed Room
+  show_header_toggle: true
+- type: entities
+  entities:
+    - light.fan
+    - light.diya
+  title: Guest Room
+  show_header_toggle: true
+- type: entities
+  entities:
+    - group.theater_room
+    - group.dining_room
+    - group.lr_spots
+  title: Living Room
+  show_header_toggle: true
+- type: entities
+  entities:
+    - group.bed_room
+    - group.guest_room
+  title: Bedrooms
+  show_header_toggle: true
+- type: entities
+  entities:
+    - light.bedroom
+    - light.bedroom_cove_2
+    - light.dining_overhead_2
+    - light.guest_room
+    - light.lr_cove_2
+    - light.living_room
+    - light.living_dining
+    - light.guest_room_2
+    - light.lr_spots
+  title: Light
+- type: media-control
+  entity: media_player.shield_2
+- type: media-control
+  entity: media_player.dadu_tv
+- type: media-control
+  entity: media_player.kodi_android4local
+- type: media-control
+  entity: media_player.musiccast_tv
+- type: media-control
+  entity: media_player.samsung_led65_ua65hu8500
+- type: media-control
+  entity: media_player.shield
+- type: media-control
+  entity: media_player.small_room_ua48hu5900
+- type: media-control
+  entity: media_player.small_room_ua48hu5900_2
+- type: entities
+  entities:
+    - script.cozy
+    - script.normal
+    - script.theater
+  title: Script

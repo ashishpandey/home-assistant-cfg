@@ -4,17 +4,19 @@ theater:
     data:
       group_name: "Living+Dining"
       scene_name: "Theater"
+  icon: mdi:home-lightbulb
 normal:
   sequence:
   - service: hue.hue_activate_scene
     data:
       group_name: "Living+Dining"
       scene_name: "Normal"
+  icon: mdi:home-lightbulb
 cozy:
   sequence:
   - service: hue.hue_activate_scene
     data:
       group_name: "Living+Dining"
       scene_name: "Cozy"
-
+  icon: mdi:home-lightbulb
 
