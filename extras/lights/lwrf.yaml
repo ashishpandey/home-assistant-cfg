@@ -42,4 +42,9 @@
         data_template:
           brightness: "{{ (brightness / 255 * 10)|int }}"
       level_template: "{{ (states('sensor.lr_spots_rear_level')|float / 10 * 255)|int }}"
-           
+- platform: group
+  name: lr_spots
+  entities:
+    - light.lr_spots_front
+    - light.lr_spots_rear
+        
