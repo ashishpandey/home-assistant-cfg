@@ -15,17 +15,26 @@
           on
         {% endif %}
       turn_on:
-        service: rest_command.lr_spots_front_set_brightness
-        data:
-          brightness: 1
+        - service: rest_command.lr_spots_front_set_brightness
+          data:
+            brightness: 1
+        - service: homeassistant.update_entity
+          data:
+            entity_id: sensor.lr_spots_front_level
       turn_off:
-        service: rest_command.lr_spots_front_set_brightness
-        data:
-          brightness: 0
+        - service: rest_command.lr_spots_front_set_brightness
+          data:
+            brightness: 0
+        - service: homeassistant.update_entity
+          data:
+            entity_id: sensor.lr_spots_front_level            
       set_level:
-        service: rest_command.lr_spots_front_set_brightness
-        data_template:
-          brightness: "{{ (brightness / 255 * 10)|int }}"
+        - service: rest_command.lr_spots_front_set_brightness
+          data_template:
+            brightness: "{{ (brightness / 255 * 10)|int }}"
+        - service: homeassistant.update_entity
+          data:
+            entity_id: sensor.lr_spots_front_level  
       level_template: "{{ (states('sensor.lr_spots_front_level')|float / 10 * 255)|int }}"
     lr_spots_rear: 
       friendly_name: "LR Spots Rear"
@@ -42,17 +51,26 @@
           on
         {% endif %}
       turn_on:
-        service: rest_command.lr_spots_rear_set_brightness
-        data:
-          brightness: 1
+        - service: rest_command.lr_spots_rear_set_brightness
+          data:
+            brightness: 1
+        - service: homeassistant.update_entity
+          data:
+            entity_id: sensor.lr_spots_rear_level
       turn_off:
-        service: rest_command.lr_spots_rear_set_brightness
-        data:
-          brightness: 0
+        - service: rest_command.lr_spots_rear_set_brightness
+          data:
+            brightness: 0
+        - service: homeassistant.update_entity
+          data:
+            entity_id: sensor.lr_spots_rear_level
       set_level:
-        service: rest_command.lr_spots_rear_set_brightness
-        data_template:
-          brightness: "{{ (brightness / 255 * 10)|int }}"
+        - service: rest_command.lr_spots_rear_set_brightness
+          data_template:
+            brightness: "{{ (brightness / 255 * 10)|int }}"
+        - service: homeassistant.update_entity
+          data:
+            entity_id: sensor.lr_spots_rear_level
       level_template: "{{ (states('sensor.lr_spots_rear_level')|float / 10 * 255)|int }}"
 - platform: group
   name: lr_spots

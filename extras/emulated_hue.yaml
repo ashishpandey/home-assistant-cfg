@@ -20,3 +20,10 @@ entities:
   script.theater:
     name: Theater Lights
     hidden: false
+  light.lr_spots_front:
+    name: Front Spots
+    hidden: false
+  light.lr_spots_rear:
+    name: Rear Spots
+    hidden: false
+  

@@ -1,4 +1,7 @@
 title: Home
+resources:
+  - url: /local/plugins/slider-entity-row.js
+    type: module
 views:
   - path: home
     title: Home
@@ -48,10 +51,16 @@ views:
     cards:        
       - type: entities
         entities:
-          - entity: light.lr_spots_front
+          - type: custom:slider-entity-row
+            entity: light.lr_spots_front
             name: Front
-          - entity: light.lr_spots_rear
+            step: 10
+            toggle: true
+          - type: custom:slider-entity-row
+            entity: light.lr_spots_rear
             name: Rear
+            step: 10
+            toggle: true
         title: LR Spots
         show_header_toggle: true    
       - type: entities

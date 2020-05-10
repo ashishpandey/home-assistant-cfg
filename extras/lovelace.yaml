@@ -1,4 +1,7 @@
 mode: yaml
+resources:
+  - url: /local/plugins/slider-entity-row.js
+    type: module
 dashboards:
   lovelace-livingroom: # Needs to contain a hyphen (-)
     mode: yaml
