@@ -18,3 +18,6 @@ custom_components
 
 # And of course no secrets
 secrets.yaml
+
+# for now also this unknown
+tts/

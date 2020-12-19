@@ -3,8 +3,9 @@ resources:
   - url: /local/plugins/slider-entity-row.js
     type: module
 dashboards:
-  lovelace-livingroom: # Needs to contain a hyphen (-)
+  lovelace-generated: # auto generated
     mode: yaml
-    title: Living Room
-    filename: extras/dashboards/living_room.yaml
+    filename: notexist.yaml
+    title: All Entities
+    icon: mdi:tools
     show_in_sidebar: true
