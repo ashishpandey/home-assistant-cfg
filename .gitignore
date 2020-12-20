@@ -11,6 +11,7 @@
 !**/*.yaml
 !bin/*.sh
 !deploy_patch.sh
+!custom_components/**
 
 # And of course no secrets
 secrets.yaml
