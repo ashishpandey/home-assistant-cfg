@@ -1,6 +1,8 @@
 title: Home
 resources:
-  - url: /local/plugins/slider-entity-row.js
+  - url: /local/plugins/slider-entity-row.js?v=20201220
+    type: module
+  - url: /local/plugins/fan-control-entiry-row.js?v=20201220
     type: module
 views:
   - path: home
@@ -18,8 +20,6 @@ views:
       - entity: sensor.dining_room_sensor_light_level
         name: Lux
       - entity: sun.sun
-      - entity: sensor.yr_symbol
-        name: weather
     cards:
       - type: entities
         entities:
@@ -96,6 +96,8 @@ views:
         entities:
           - light.bedroom_cove
           - light.candle
+          - entity: fan.bedroom_fan
+            type: custom:fan-control-entity-row
         title: Bed Room
         show_header_toggle: true
       - type: entities

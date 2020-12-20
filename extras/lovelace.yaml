@@ -1,6 +1,8 @@
 mode: yaml
 resources:
-  - url: /local/plugins/slider-entity-row.js
+  - url: /local/plugins/slider-entity-row.js?v=20201220
+    type: module
+  - url: /local/plugins/fan-control-entiry-row.js?v=20201220
     type: module
 dashboards:
   lovelace-generated: # auto generated
