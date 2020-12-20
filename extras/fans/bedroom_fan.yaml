@@ -21,7 +21,7 @@
   payload_available: Online
   payload_not_available: Offline
   speeds:
-    - off
+    - "off"
     - low
     - medium
     - high
