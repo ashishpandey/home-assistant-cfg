@@ -2,7 +2,7 @@ title: Home
 resources:
   - url: /local/plugins/slider-entity-row.js?v=20201220
     type: module
-  - url: /local/plugins/fan-control-entiry-row.js?v=20201220
+  - url: /local/plugins/fan-control-entity-row.js?v=20201220
     type: module
 views:
   - path: home
