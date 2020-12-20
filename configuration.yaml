@@ -84,7 +84,7 @@ climate:
   - platform: smartir
     name: Bedroom AC
     unique_id: bedroom_ac
-    device_code: 1021
+    device_code: 9001
     controller_data: remote.br_rm4_remote
     temperature_sensor: sensor.br_rm4_temperature
     humidity_sensor: sensor.br_rm4_humidity
