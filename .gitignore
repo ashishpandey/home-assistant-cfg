@@ -12,10 +12,6 @@
 !bin/*.sh
 !deploy_patch.sh
 
-# no custom_components for now
-custom_components/emulated_hue
-custom_components
-
 # And of course no secrets
 secrets.yaml
 

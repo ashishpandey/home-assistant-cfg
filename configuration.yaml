@@ -76,3 +76,17 @@ sensor: !include_dir_merge_list extras/sensors/
 switch: !include_dir_merge_list extras/switches/
 light: !include_dir_merge_list extras/lights/
 tplink: !include extras/tplink.yaml
+
+smartir:
+  check_updates: false
+
+climate:
+  - platform: smartir
+    name: Bedroom AC
+    unique_id: bedroom_ac
+    device_code: 1021
+    controller_data: remote.br_rm4_remote
+    temperature_sensor: sensor.br_rm4_temperature
+    humidity_sensor: sensor.br_rm4_humidity
+#   power_sensor: binary_sensor.ac_power 
+
