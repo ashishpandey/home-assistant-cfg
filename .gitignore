@@ -1,17 +1,19 @@
 # ignore everything
-*
+#*
+bin/.HA_TOKEN
 
 # dont ignore subdirectories, so we can recurse
 !*/
 
 # But not the below
-!.vscode/*
-!README.md
-!.gitignore
-!**/*.yaml
-!bin/*.sh
-!deploy_patch.sh
-!custom_components/**
+# !.vscode/*
+# !README.md
+# !config
+# !.gitignore
+# !**/*.yaml
+# !bin/*.sh
+# !deploy_patch.sh
+# !custom_components/**
 
 # And of course no secrets
 secrets.yaml
