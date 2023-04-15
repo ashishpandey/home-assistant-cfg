@@ -7,5 +7,8 @@ My [Home Assistant](https://www.home-assistant.io/) Configuration
 _**Perennially** Work In Progress_
 
 > Needs a `config/secrets.yaml` to complete the configuration
+>
 > Needs a `bin/.HA_TOKEN` to call HA APIs for development
+
+use scripts under `bin` to deploy
 
