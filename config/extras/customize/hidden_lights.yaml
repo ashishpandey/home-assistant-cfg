@@ -18,9 +18,9 @@ light.fan_3:
   hidden: true
 light.livingdining:
   hidden: true
-light.lr_cove_front:
+light.lr_front_cove:
   hidden: true
-light.lr_cove_back:
+light.lr_rear_cove:
   hidden: true
 light.lr_curtain_strip:
   hidden: true

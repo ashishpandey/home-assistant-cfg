@@ -1,0 +1,6 @@
+- name: LR Cove
+  platform: group
+  unique_id: lr_cove
+  entities:
+  - light.lr_front_cove
+  - light.lr_rear_cove

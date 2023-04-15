@@ -23,7 +23,7 @@ cards:
 - type: entities
   entities:
     - light.lr_cove
-    - light.lr_curtain
+    - light.lr_curtain_strip
     - light.sofa_light
     - light.accent_strip
   title: Theater Room
@@ -73,7 +73,7 @@ cards:
     - light.bedroom_cove_2
     - light.dining_overhead_2
     - light.guest_room
-    - light.lr_cove_2
+    - light.lr_cove
     - light.living_room
     - light.living_dining
     - light.guest_room_2

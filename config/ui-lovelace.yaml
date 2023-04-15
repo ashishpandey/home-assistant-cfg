@@ -66,7 +66,7 @@ views:
       - type: entities
         entities:
           - light.lr_cove
-          - light.lr_curtain
+          - light.lr_curtain_strip
           - light.sofa_light
           - light.accent_strip
         title: Theater Room
