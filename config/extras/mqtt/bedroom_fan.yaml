@@ -1,0 +1,44 @@
+- fan: 
+    name: "Bedroom Fan"
+    unique_id: bedroom_fan
+    availability_topic: tele/tasmota_br_fan/LWT
+    command_topic: "cmnd/tasmota_br_fan/FanSpeed"
+    optimistic: false
+    state_topic: "stat/tasmota_br_fan/RESULT"
+    state_value_template: >
+      {% if value_json.FanSpeed is defined %}
+        {% if value_json.FanSpeed == 0 -%}off{%- elif value_json.FanSpeed > 0 -%}on{%- endif %}
+      {% else %}
+        {% if states.fan.bedroom_fan.state == 'off' -%}off{%- elif states.fan.bedroom_fan.state == 'on' -%}on{%- endif %}
+      {% endif %}
+    payload_off: "off"
+    payload_on: "on"
+    payload_available: Online
+    payload_not_available: Offline
+    preset_modes:
+      - 'off'
+      - 'low'
+      - 'medium'
+      - 'high'
+    preset_mode_command_topic: "cmnd/tasmota_br_fan/FanSpeed"
+    preset_mode_command_template: >
+      {% if value == 'low' %}
+        1
+      {% elif value == 'medium' %}
+        2
+      {% elif value == 'high' %}
+        3
+      {% else %}
+        0 
+      {% endif %}
+    preset_mode_state_topic: "stat/tasmota_br_fan/RESULT"
+    preset_mode_value_template: >
+      {% if value_json.FanSpeed == 1 %}
+        low
+      {% elif value_json.FanSpeed == 2 %}
+        medium
+      {% elif value_json.FanSpeed == 3 %}
+        high
+      {% else %}
+        off
+      {% endif %}

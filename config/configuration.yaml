@@ -14,6 +14,11 @@ homeassistant:
   # Customize 
   customize: !include_dir_merge_named extras/customize/
 
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 192.168.1.1
+
 # Show links to resources in log and frontend
 # introduction:
 
@@ -21,7 +26,8 @@ system_health:
 
 # Enables the frontend
 frontend:
-  themes: !include_dir_merge_named extras/themes/
+  themes: !include_dir_merge_named themes
+  # themes: !include_dir_merge_named extras/themes/
 
 # manage frontend in code
 lovelace: !include extras/lovelace.yaml
@@ -41,9 +47,6 @@ config:
 # updater:
   # Optional, allows Home Assistant developers to focus on popular components.
   # include_used_components: true
-
-# Discover some devices automatically
-discovery:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
@@ -76,7 +79,7 @@ rest_command: !include_dir_merge_named extras/rest_commands/
 sensor: !include_dir_merge_list extras/sensors/
 switch: !include_dir_merge_list extras/switches/
 light: !include_dir_merge_list extras/lights/
-# fan: !include_dir_merge_list extras/fans/
+mqtt: !include_dir_merge_list extras/mqtt/
 tplink: !include extras/tplink.yaml
 
 # smartir:
@@ -92,3 +95,18 @@ tplink: !include extras/tplink.yaml
 #     humidity_sensor: sensor.br_rm4_humidity
 #   power_sensor: binary_sensor.ac_power 
 
+climate:
+  - platform: generic_thermostat
+    name: cooler
+    heater: switch.cooler_power
+    ac_mode: true
+    target_sensor: sensor.cooler_temperature
+    precision: 1.0
+    initial_hvac_mode: "off"
+
+# binary_sensor.cooler_status - on/off
+# select.cooler_hvac
+# select.cooler_swing
+# sensor.cooler_humidity
+# sensor.cooler_temperature
+# switch.cooler_power

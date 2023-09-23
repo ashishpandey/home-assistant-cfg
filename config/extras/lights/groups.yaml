@@ -4,3 +4,10 @@
   entities:
   - light.lr_front_cove
   - light.lr_rear_cove
+- name: Guest Room Fan
+  platform: group
+  unique_id: guest_room_fan
+  entities:
+  - light.fan_1
+  - light.fan_2
+  - light.fan_3

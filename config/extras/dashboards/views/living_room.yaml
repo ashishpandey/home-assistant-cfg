@@ -32,7 +32,7 @@ cards:
     - group.theater_room
     - group.dining_room
     - group.lr_spots
-    - switch.my_smart_plug
+    # - switch.my_smart_plug
   title: Living Room
   show_header_toggle: true
 - type: entities
@@ -43,7 +43,7 @@ cards:
   show_header_toggle: true
 - type: entities
   entities:
-    - light.fan
+    - light.guest_room_fan
     - light.diya
   title: Guest Room
   show_header_toggle: true

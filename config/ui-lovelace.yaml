@@ -2,22 +2,24 @@ title: Home
 resources:
   - url: /local/plugins/slider-entity-row.js?v=20201220
     type: module
-  - url: /local/plugins/fan-control-entity-row.js?v=20201220
+  - url: /hacsfiles/fan-mode-button-row/fan-mode-button-row.js?v=20230902
+    type: module
+  - url: /hacsfiles/simple-thermostat/simple-thermostat.js?v=20230922
     type: module
 views:
   - path: home
     title: Home
     badges:
-      - entity: binary_sensor.updater
-      - entity: sensor.energy_usage
-        name: Load
-      - entity: sensor.energy_consumed
-        name: Consumed
-      - entity: sensor.energy_budget
-        name: Budget
+      - entity: sensor.dining_room_sensor_battery
+      - entity: sensor.bed_switch_battery
+      - entity: sensor.bedroom_main_switch_battery
+      - entity: sensor.bedroom_spare_switch_battery
+      - entity: sensor.corridor_switch_battery
+      - entity: sensor.dining_room_switch_battery
+      - entity: sensor.guest_room_switch_battery
       - entity: sensor.dining_room_sensor_temperature
-        name: Temp
-      - entity: sensor.dining_room_sensor_light_level
+        name: LR Temp
+      - entity: sensor.dining_room_sensor_illuminance
         name: Lux
       - entity: sun.sun
     cards:
@@ -26,7 +28,7 @@ views:
           - group.theater_room
           - group.dining_room
           - group.lr_spots
-          - switch.my_smart_plug
+          # - switch.my_smart_plug
         title: Living Room
         show_header_toggle: true
       - type: entities
@@ -51,12 +53,12 @@ views:
     cards:        
       - type: entities
         entities:
-          - type: custom:slider-entity-row
+          - type: 'custom:slider-entity-row'
             entity: light.lr_spots_front
             name: Front
             step: 10
             toggle: true
-          - type: custom:slider-entity-row
+          - type: 'custom:slider-entity-row'
             entity: light.lr_spots_rear
             name: Rear
             step: 10
@@ -90,22 +92,44 @@ views:
     cards:
       - type: entities
         entities:
-          - light.bedroom_cove
-          - light.candle
+          - entity: light.bedroom_cove
+          - entity: light.candle
           - entity: fan.bedroom_fan
-            type: custom:fan-control-entity-row
+            type: 'custom:fan-mode-button-row'
         title: Bed Room
         show_header_toggle: true
+      - type: thermostat
+        entity: climate.cooler
+      - type: custom:simple-thermostat
+        entity: climate.cooler
+        step_size: 1
+        sensors:
+          - sensor.cooler_humidity
+          - sensor.cooler_temperature
+          - binary_sensor.cooler_status
+        layout:
+          step: row
+          mode:
+            names: true
+            headings: false
+        header: true
+        control:
+          hvac:
+            _name: Mode
+          fan:
+            _name: Fan Mode
+          swing:
+            _name: Swing Mode
+          preset:
+            _name: Preset Mode
       - type: entities
         entities:
-          - light.fan
+          - light.guest_room_fan
           - light.diya
         title: Guest Room
         show_header_toggle: true
       - type: entities
         entities:
           - light.bedroom
-          - light.bedroom_cove_2
           - light.guest_room
-          - light.living_dining
         title: light

@@ -1,15 +1,22 @@
 path: default_view
 title: Home
 badges:
-- entity: binary_sensor.updater
+# - entity: binary_sensor.updater
 - entity: sensor.lr_spots_rear_level
 - entity: sensor.lr_spots_front_level
-- entity: sensor.energy_usage
-- entity: sensor.yr_symbol
-- entity: sensor.energy_consumed
-- entity: sensor.energy_budget
+# - entity: sensor.energy_usage
+# - entity: sensor.yr_symbol
+# - entity: sensor.energy_consumed
+# - entity: sensor.energy_budget
 - entity: sensor.dining_room_sensor_temperature
-- entity: sensor.dining_room_sensor_light_level
+- entity: sensor.dining_room_sensor_illuminance
+- entity: sensor.dining_room_sensor_battery
+- entity: sensor.bed_switch_battery
+- entity: sensor.bedroom_main_switch_battery
+- entity: sensor.bedroom_spare_switch_battery
+- entity: sensor.corridor_switch_battery
+- entity: sensor.dining_room_switch_battery
+- entity: sensor.guest_room_switch_battery
 - entity: sun.sun
 cards:
 - type: entities
@@ -39,7 +46,7 @@ cards:
     - group.theater_room
     - group.dining_room
     - group.lr_spots
-    - switch.my_smart_plug
+    # - switch.my_smart_plug
   title: Living Room
   show_header_toggle: true
 - type: entities
@@ -50,7 +57,7 @@ cards:
   show_header_toggle: true
 - type: entities
   entities:
-    - light.fan
+    - light.guest_room_fan
     - light.diya
   title: Guest Room
   show_header_toggle: true

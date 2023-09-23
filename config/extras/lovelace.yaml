@@ -1,9 +1,11 @@
 mode: yaml
 resources:
-  - url: /local/plugins/slider-entity-row.js?v=20201220
-    type: module
-  - url: /local/plugins/fan-control-entity-row.js?v=20201220
-    type: module
+- url: /local/plugins/slider-entity-row.js?v=20201220
+  type: module
+- url: /hacsfiles/fan-mode-button-row/fan-mode-button-row.js
+  type: module
+- url: /hacsfiles/simple-thermostat/simple-thermostat.js?v=20230922
+  type: module
 dashboards:
   lovelace-generated: # auto generated
     mode: yaml
