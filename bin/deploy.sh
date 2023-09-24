@@ -15,6 +15,6 @@ echo "syncing config ..."
 # i -> itemize
 # z -> compression
 # P -> partial + progress
-rsync --rsync-path 'sudo -u nobody rsync' -aizP ${CONF_DIR}/ root@godaam.local:/mnt/cache/appdata/homeassistant
+rsync --rsync-path 'sudo -u nobody rsync' --exclude './willow' -aizP ${CONF_DIR}/ root@godaam.local:/mnt/cache/appdata/homeassistant
 
 echo "Done copying files"

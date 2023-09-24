@@ -6,6 +6,8 @@ resources:
   type: module
 - url: /hacsfiles/simple-thermostat/simple-thermostat.js?v=20230922
   type: module
+- url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
+  type: module
 dashboards:
   lovelace-generated: # auto generated
     mode: yaml

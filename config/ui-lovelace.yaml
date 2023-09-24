@@ -6,6 +6,8 @@ resources:
     type: module
   - url: /hacsfiles/simple-thermostat/simple-thermostat.js?v=20230922
     type: module
+  - url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
+    type: module
 views:
   - path: home
     title: Home
@@ -96,41 +98,22 @@ views:
           - entity: light.candle
           - entity: fan.bedroom_fan
             type: 'custom:fan-mode-button-row'
+          - entity: switch.cooler_power
+            type: custom:multiple-entity-row
+            name: Bedroom AC
+            icon: mdi:air-conditioner
+            toggle: true
+            entities:
+              - entity: sensor.cooler_humidity
+                name: Humidity
+              - entity: sensor.cooler_temperature
+                name: Temp
+            secondary_info:
+              entity: binary_sensor.cooler_status
+              name: false
+              icon: true
         title: Bed Room
         show_header_toggle: true
-      - type: custom:simple-thermostat
-        entity: climate.my_cooler
-        step_size: 1
-        decimals: 0
-        sensors:
-          - name: Humidity
-            entity: sensor.cooler_humidity
-            decimals: 0
-          - name: Temperature
-            entity: sensor.cooler_temperature
-            decimals: 0
-        layout:
-          step: column
-          mode:
-            names: true
-            icons: true
-            headings: false
-        header: 
-          name: Bedroom AC
-          faults:
-            - entity: binary_sensor.cooler_status
-        control:
-          hvac:
-            _name: Mode
-          fan:
-            _name: Fan Mode
-            "powerful":
-              name: High
-              icon: fan
-          swing:
-            _name: Swing Mode
-          preset:
-            _name: Preset Mode
       - type: entities
         entities:
           - light.guest_room_fan

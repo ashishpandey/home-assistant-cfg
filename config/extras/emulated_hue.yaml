@@ -1,5 +1,6 @@
 listen_port: 8300
-host_ip: 192.168.1.215
+# host_ip: 192.168.1.215
+upnp_bind_multicast: False
 advertise_ip: 192.168.1.28
 advertise_port: 80
 expose_by_default: false

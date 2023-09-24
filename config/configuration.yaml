@@ -95,15 +95,15 @@ mqtt: !include_dir_merge_list extras/mqtt/
 #     humidity_sensor: sensor.br_rm4_humidity
 #   power_sensor: binary_sensor.ac_power 
 
-climate:
-  - platform: generic_thermostat
-    name: my_cooler
-    unique_id: my_cooler
-    heater: switch.cooler_power
-    ac_mode: true
-    target_sensor: sensor.cooler_temperature
-    precision: 1.0
-    min_temp: 18
-    max_temp: 30
-    target_temp: 20
+# climate:
+#   - platform: generic_thermostat
+#     name: my_cooler
+#     unique_id: my_cooler
+#     heater: switch.cooler_power
+#     ac_mode: true
+#     target_sensor: sensor.cooler_temperature
+#     precision: 1.0
+#     min_temp: 18
+#     max_temp: 30
+#     target_temp: 20
     # initial_hvac_mode: "off"
