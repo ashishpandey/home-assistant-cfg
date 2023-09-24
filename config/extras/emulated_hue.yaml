@@ -1,5 +1,7 @@
-host_ip: 192.168.1.22
-listen_port: 80
+listen_port: 8300
+host_ip: 192.168.1.215
+advertise_ip: 192.168.1.28
+advertise_port: 80
 expose_by_default: false
 off_maps_to_on_domains:
   - scene
@@ -11,19 +13,18 @@ entities:
   switch.my_smart_plug:
     name: Christmas Light
     hidden: false
-  script.normal:
-    name: Normal Lights
-    hidden: false
-  script.cozy:
-    name: Cozy Lights
-    hidden: false
-  script.theater:
-    name: Theater Lights
-    hidden: false
   light.lr_spots_front:
     name: Front Spots
     hidden: false
   light.lr_spots_rear:
     name: Rear Spots
     hidden: false
-  
+  # script.normal:
+  #   name: Normal Lights
+  #   hidden: false
+  # script.cozy:
+  #   name: Cozy Lights
+  #   hidden: false
+  # script.theater:
+  #   name: Theater Lights
+  #   hidden: false

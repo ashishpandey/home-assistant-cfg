@@ -77,10 +77,10 @@ group: !include_dir_merge_named extras/groups/
 emulated_hue: !include extras/emulated_hue.yaml
 rest_command: !include_dir_merge_named extras/rest_commands/
 sensor: !include_dir_merge_list extras/sensors/
-switch: !include_dir_merge_list extras/switches/
+# switch: !include_dir_merge_list extras/switches/
 light: !include_dir_merge_list extras/lights/
 mqtt: !include_dir_merge_list extras/mqtt/
-tplink: !include extras/tplink.yaml
+# tplink: !include extras/tplink.yaml
 
 # smartir:
 #   check_updates: false
@@ -97,16 +97,13 @@ tplink: !include extras/tplink.yaml
 
 climate:
   - platform: generic_thermostat
-    name: cooler
+    name: my_cooler
+    unique_id: my_cooler
     heater: switch.cooler_power
     ac_mode: true
     target_sensor: sensor.cooler_temperature
     precision: 1.0
-    initial_hvac_mode: "off"
-
-# binary_sensor.cooler_status - on/off
-# select.cooler_hvac
-# select.cooler_swing
-# sensor.cooler_humidity
-# sensor.cooler_temperature
-# switch.cooler_power
+    min_temp: 18
+    max_temp: 30
+    target_temp: 20
+    # initial_hvac_mode: "off"

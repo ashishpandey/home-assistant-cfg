@@ -98,26 +98,35 @@ views:
             type: 'custom:fan-mode-button-row'
         title: Bed Room
         show_header_toggle: true
-      - type: thermostat
-        entity: climate.cooler
       - type: custom:simple-thermostat
-        entity: climate.cooler
+        entity: climate.my_cooler
         step_size: 1
+        decimals: 0
         sensors:
-          - sensor.cooler_humidity
-          - sensor.cooler_temperature
-          - binary_sensor.cooler_status
+          - name: Humidity
+            entity: sensor.cooler_humidity
+            decimals: 0
+          - name: Temperature
+            entity: sensor.cooler_temperature
+            decimals: 0
         layout:
-          step: row
+          step: column
           mode:
             names: true
+            icons: true
             headings: false
-        header: true
+        header: 
+          name: Bedroom AC
+          faults:
+            - entity: binary_sensor.cooler_status
         control:
           hvac:
             _name: Mode
           fan:
             _name: Fan Mode
+            "powerful":
+              name: High
+              icon: fan
           swing:
             _name: Swing Mode
           preset:
