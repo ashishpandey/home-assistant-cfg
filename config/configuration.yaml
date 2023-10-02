@@ -51,6 +51,8 @@ config:
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
 
+intent_script: !include_dir_merge_named extras/intent_scripts/
+
 # Enables support for tracking state changes over time
 history:
 

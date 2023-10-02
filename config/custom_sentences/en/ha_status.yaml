@@ -1,0 +1,6 @@
+language: "en"
+intents:
+  HomeAssistantStatus:
+    data:
+      - sentences:
+          - "How is HA doing"

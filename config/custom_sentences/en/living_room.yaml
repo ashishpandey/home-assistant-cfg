@@ -1,0 +1,6 @@
+language: "en"
+intents:
+  LivingRoomTemperature:
+    data:
+      - sentences:
+          - "What is Living Room temperature"
