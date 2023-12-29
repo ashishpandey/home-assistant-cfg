@@ -2,11 +2,17 @@ title: Home
 resources:
   - url: /local/plugins/slider-entity-row.js?v=20201220
     type: module
-  - url: /hacsfiles/fan-mode-button-row/fan-mode-button-row.js?v=20230902
+  - url: /hacsfiles/fan-mode-button-row/fan-mode-button-row.js
     type: module
-  - url: /hacsfiles/simple-thermostat/simple-thermostat.js?v=20230922
+  - url: /hacsfiles/simple-thermostat/simple-thermostat.js
     type: module
   - url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
+    type: module
+  - url: /hacsfiles/fan-percent-button-row/fan-percent-button-row.js
+    type: module
+  - url: /hacsfiles/lovelace-auto-entities/auto-entities.js
+    type: module
+  - url: /hacsfiles/spotify-card/spotify-card.js
     type: module
 views:
   - path: home
@@ -24,12 +30,13 @@ views:
       - entity: sensor.dining_room_sensor_illuminance
         name: Lux
       - entity: sun.sun
+
     cards:
       - type: entities
         entities:
           - group.theater_room
           - group.dining_room
-          - group.lr_spots
+          # - group.lr_spots
           # - switch.my_smart_plug
         title: Living Room
         show_header_toggle: true
@@ -39,40 +46,33 @@ views:
           - group.guest_room
         title: Bedrooms
         show_header_toggle: true
-  
+
   - path: living
     title: Living Room
     theme: dark-mode
     badges:
-      - entity: sensor.lr_spots_front_level
-        name: Front Spots
-      - entity: sensor.lr_spots_rear_level
-        name: Rear Spots
       - entity: sensor.dining_room_sensor_temperature
         name: Temp
-      - entity: sensor.dining_room_sensor_light_level
+      - entity: sensor.dining_room_sensor_illuminance
         name: Lux        
     cards:        
       - type: entities
         entities:
-          - type: 'custom:slider-entity-row'
-            entity: light.lr_spots_front
+          - entity: light.lr_spots_front_2
             name: Front
-            step: 10
-            toggle: true
-          - type: 'custom:slider-entity-row'
-            entity: light.lr_spots_rear
+          - entity: light.lr_spots_rear_2
             name: Rear
-            step: 10
-            toggle: true
         title: LR Spots
         show_header_toggle: true    
       - type: entities
         entities:
-          - light.lr_cove
+          - light.lr_cove_2
           - light.lr_curtain_strip
           - light.sofa_light
-          - light.accent_strip
+          - entity: fan.lr_fan
+            name: Living Room Fan
+            type: custom:fan-percent-button-row
+          # - light.accent_strip
         title: Theater Room
         show_header_toggle: true
       - type: entities
@@ -96,8 +96,9 @@ views:
         entities:
           - entity: light.bedroom_cove
           - entity: light.candle
-          - entity: fan.bedroom_fan
-            type: 'custom:fan-mode-button-row'
+          - entity: fan.br_fan
+            name: Bedroom Fan
+            type: custom:fan-percent-button-row
           - entity: switch.cooler_power
             type: custom:multiple-entity-row
             name: Bedroom AC
@@ -125,3 +126,71 @@ views:
           - light.bedroom
           - light.guest_room
         title: light
+  - path: power
+    title: Power
+    theme: dark-mode
+    cards:
+      - type: custom:battery-state-card
+        title: Battery Levels
+        secondary_info: "{last_changed}"
+        filter:
+          include:
+            - name: attributes.device_class
+              value: battery
+            - entity_id: attributes.entity
+              value: sensor.camera_box_battery_state 
+        sort:
+          by: "state"
+        collapse: 8
+        bulk_rename:
+          - from: " Battery"
+          - from: " level"
+        colors:
+          steps:
+            - value: 15
+              color: '#ff0000'
+            - value: 40
+              color: '#ff8800'
+            - value: 75
+              color: '#ffff00'
+            - value: 100 
+              color: '#00ff00'
+          gradient: true
+      - type: custom:auto-entities
+        card:
+          type: entities
+          title: Battery Levels
+        filter:
+          include:
+            - entity_id: sensor.*battery*
+              sort:
+                reverse: true
+                method: state
+          exclude:
+            - attributes:
+                device_class: battery
+  - path: reports
+    title: Report
+    theme: dark-mode
+    cards:
+      - type: markdown
+        content: >-
+          <h2> <ha-icon icon='mdi:shield-half-full'></ha-icon> Watchman report</h2>
+          <h3>Missing Entities: {{ states.sensor.watchman_missing_entities.state }} </h3>
+          {%- for item in state_attr("sensor.watchman_missing_entities", "entities") %}
+          <hr> <table><tr> <td>
+          <ha-icon icon='mdi:
+          {%- if item.state=="missing"-%}cloud-alert'
+          {%- elif item.state=="unavail" -%}cloud-off-outline' {%- else-%}cloud-question'
+          {%- endif -%} ></ha-icon>
+          {{ item.id }} [{{item.state}}] <a title="{{item.occurrences}}">
+          {{item.occurrences.split('/')[-1].split(':')[0]}}</a>
+          </td></tr></table>
+          {%- endfor %}
+        card_mod:
+          style:
+            ha-markdown:
+              $: |
+                ha-markdown-element:first-of-type hr{
+                  border-color: #303030;
+                }

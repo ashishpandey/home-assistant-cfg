@@ -1,13 +1,17 @@
 mode: yaml
 resources:
-- url: /local/plugins/slider-entity-row.js?v=20201220
-  type: module
-- url: /hacsfiles/fan-mode-button-row/fan-mode-button-row.js
-  type: module
-- url: /hacsfiles/simple-thermostat/simple-thermostat.js?v=20230922
-  type: module
-- url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
-  type: module
+  - url: /local/plugins/slider-entity-row.js?v=20201220
+    type: module
+  - url: /hacsfiles/fan-mode-button-row/fan-mode-button-row.js
+    type: module
+  - url: /hacsfiles/simple-thermostat/simple-thermostat.js
+    type: module
+  - url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
+    type: module
+  - url: /hacsfiles/fan-percent-button-row/fan-percent-button-row.js
+    type: module
+  - url: /hacsfiles/battery-state-card/battery-state-card.js
+    type: module
 dashboards:
   lovelace-generated: # auto generated
     mode: yaml

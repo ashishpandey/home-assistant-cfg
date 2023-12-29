@@ -2,7 +2,10 @@
 
 never expecting this to be empty ;-)
 
-* fix emulated_hue broadcast
+* fix UI Minimalist styling
+* rgb lights cards
+* voice control (lr spots + hue scenes)
 * expose unifi status / notify firmware updates
-* AC local control
 * willow assistant
+* xiaomi purifiers
+* test watchman notifications

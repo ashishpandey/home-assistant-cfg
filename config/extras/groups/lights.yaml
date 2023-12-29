@@ -1,15 +1,11 @@
-lr_spots:
-  name: LR Spots
-  entities:
-  - light.lr_spots_front
-  - light.lr_spots_rear
 theater_room:
   name: Theater Room
   entities:
-  - light.lr_cove
+  - light.lr_cove_2
   - light.lr_curtain_strip
   - light.sofa_light
-  - light.accent_strip
+  - fan.lr_fan
+  # - light.accent_strip
 dining_room:
   name: Dining Room
   entities:

@@ -12,3 +12,6 @@ _**Perennially** Work In Progress_
 
 use scripts under `bin` to deploy
 
+#### References
+
+* [Awesome Home Assistant](https://www.awesome-ha.com/)

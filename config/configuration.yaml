@@ -18,6 +18,7 @@ http:
   use_x_forwarded_for: true
   trusted_proxies:
     - 192.168.1.1
+    - 192.168.1.215
 
 # Show links to resources in log and frontend
 # introduction:
@@ -26,7 +27,7 @@ system_health:
 
 # Enables the frontend
 frontend:
-  themes: !include_dir_merge_named themes
+  # themes: !include_dir_merge_named themes
   # themes: !include_dir_merge_named extras/themes/
 
 # manage frontend in code
@@ -78,7 +79,7 @@ automation: !include automations.yaml
 script: !include_dir_merge_named extras/scripts/
 group: !include_dir_merge_named extras/groups/
 emulated_hue: !include extras/emulated_hue.yaml
-rest_command: !include_dir_merge_named extras/rest_commands/
+# rest_command: !include_dir_merge_named extras/rest_commands/
 sensor: !include_dir_merge_list extras/sensors/
 # switch: !include_dir_merge_list extras/switches/
 light: !include_dir_merge_list extras/lights/

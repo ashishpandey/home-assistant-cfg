@@ -2,8 +2,8 @@ path: default_view
 title: Home
 badges:
 # - entity: binary_sensor.updater
-- entity: sensor.lr_spots_rear_level
-- entity: sensor.lr_spots_front_level
+# - entity: sensor.lr_spots_rear_level
+# - entity: sensor.lr_spots_front_level
 # - entity: sensor.energy_usage
 # - entity: sensor.yr_symbol
 # - entity: sensor.energy_consumed
@@ -21,18 +21,18 @@ badges:
 cards:
 - type: entities
   entities:
-    - entity: light.lr_spots_front
+    - entity: light.lr_spots_front_2
       name: Front
-    - entity: light.lr_spots_rear
+    - entity: light.lr_spots_rear_2
       name: Rear
   title: LR Spots
   show_header_toggle: true
 - type: entities
   entities:
-    - light.lr_cove
+    - light.lr_cove_2
     - light.lr_curtain_strip
     - light.sofa_light
-    - light.accent_strip
+    # - light.accent_strip
   title: Theater Room
   show_header_toggle: true
 - type: entities
@@ -65,7 +65,7 @@ cards:
   entities:
     - group.theater_room
     - group.dining_room
-    - group.lr_spots
+    # - group.lr_spots
   title: Living Room
   show_header_toggle: true
 - type: entities
@@ -80,11 +80,11 @@ cards:
     - light.bedroom_cove_2
     - light.dining_overhead_2
     - light.guest_room
-    - light.lr_cove
+    - light.lr_cove_2
     - light.living_room
     - light.living_dining
     - light.guest_room_2
-    - light.lr_spots
+    # - light.lr_spots
   title: Light
 - type: media-control
   entity: media_player.shield_2

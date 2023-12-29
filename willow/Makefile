@@ -6,6 +6,8 @@ define chdir
    $(info $(MAKE): cd $(_D)) $(eval SHELL = cd $(_D); $(CHDIR_SHELL))
 endef
 
+dev: build/willow/docker
+
 help:
 	@echo "building willow for my own pleasure :)"
 
