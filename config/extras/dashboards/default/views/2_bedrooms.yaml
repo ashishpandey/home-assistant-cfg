@@ -1,0 +1,38 @@
+path: bed
+title: Bed Rooms
+theme: dark-mode
+cards:
+  - type: entities
+    entities:
+      - entity: light.bedroom_cove
+      - entity: light.candle
+      - entity: fan.br_fan
+        name: Bedroom Fan
+        type: custom:fan-percent-button-row
+      - entity: switch.cooler_power
+        type: custom:multiple-entity-row
+        name: Bedroom AC
+        icon: mdi:air-conditioner
+        toggle: true
+        entities:
+          - entity: sensor.cooler_humidity
+            name: Humidity
+          - entity: sensor.cooler_temperature
+            name: Temp
+        secondary_info:
+          entity: binary_sensor.cooler_status
+          name: false
+          icon: true
+    title: Bed Room
+    show_header_toggle: true
+  - type: entities
+    entities:
+      - light.guest_room_fan
+      - light.diya
+    title: Guest Room
+    show_header_toggle: true
+  - type: entities
+    entities:
+      - light.bedroom
+      - light.guest_room
+    title: light

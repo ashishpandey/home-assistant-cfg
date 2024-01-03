@@ -1,0 +1,39 @@
+path: home
+title: Home
+badges:
+  - entity: sensor.dining_room_sensor_battery
+  - entity: sensor.bed_switch_battery
+  - entity: sensor.bedroom_main_switch_battery
+  - entity: sensor.bedroom_spare_switch_battery
+  - entity: sensor.corridor_switch_battery
+  - entity: sensor.dining_room_switch_battery
+  - entity: sensor.guest_room_switch_battery
+  - entity: sensor.dining_room_sensor_temperature
+    name: LR Temp
+  - entity: sensor.dining_room_sensor_illuminance
+    name: Lux
+  - entity: sun.sun
+cards:
+  - type: glance
+    title: Living Room
+    entities:
+      - entity: binary_sensor.dining_room_sensor_motion
+        name: Motion
+      - entity: sensor.dining_room_sensor_temperature
+        name: Temperature
+      - entity: sensor.dining_room_sensor_illuminance
+        name: Illumination
+  - type: entities
+    entities:
+      - group.theater_room
+      - group.dining_room
+      # - group.lr_spots
+      # - switch.my_smart_plug
+    title: Living
+    show_header_toggle: true
+  - type: entities
+    entities:
+      - group.bed_room
+      - group.guest_room
+    title: Bedrooms
+    show_header_toggle: true

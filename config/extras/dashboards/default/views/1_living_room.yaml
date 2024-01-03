@@ -1,0 +1,41 @@
+path: living
+title: Living Room
+theme: dark-mode
+badges:
+  - entity: sensor.dining_room_sensor_temperature
+    name: Temp
+  - entity: sensor.dining_room_sensor_illuminance
+    name: Lux        
+cards:        
+  - type: entities
+    entities:
+      - entity: light.lr_spots_front_2
+        name: Front
+      - entity: light.lr_spots_rear_2
+        name: Rear
+    title: LR Spots
+    show_header_toggle: true    
+  - type: entities
+    entities:
+      - light.lr_cove_2
+      - light.lr_curtain_strip
+      - light.sofa_light
+      - light.living_room_spots
+      - entity: fan.lr_fan
+        name: Living Room Fan
+        type: custom:fan-percent-button-row
+      # - light.accent_strip
+    title: Theater Room
+    show_header_toggle: true
+  - type: entities
+    entities:
+      - light.dining_overhead
+      - light.dining_lamp
+    title: Dining Room
+    show_header_toggle: true
+  - type: entities
+    entities:
+      - script.cozy
+      - script.main
+      - script.theater
+    title: Scenes

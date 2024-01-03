@@ -4,25 +4,29 @@ expose_by_default: false
 off_maps_to_on_domains:
   - scene
   - script
+exposed_domains:
+  - light
+  - switch
+  - fan
 entities:
-  # group.lr_spots:
-  #   name: Living Room Spots
-  #   hidden: false
+  light.living_room_spots:
+    name: Living Room Spots
+    hidden: false
   switch.my_smart_plug:
     name: Christmas Light
     hidden: false
-  # light.lr_spots_front:
-  #   name: Front Spots
-  #   hidden: false
-  # light.lr_spots_rear:
-  #   name: Rear Spots
-  #   hidden: false
-  # script.normal:
-  #   name: Normal Lights
-  #   hidden: false
-  # script.cozy:
-  #   name: Cozy Lights
-  #   hidden: false
-  # script.theater:
-  #   name: Theater Lights
-  #   hidden: false
+  fan.lr_fan:
+    name: Living Room Fan
+    hidden: false
+  fan.br_fan:
+    name: Bedroom Fan
+    hidden: false
+  script.main:
+    name: Main Lights
+    hidden: false
+  script.cozy:
+    name: Cozy Lights
+    hidden: false
+  script.theater:
+    name: Theater Lights
+    hidden: false

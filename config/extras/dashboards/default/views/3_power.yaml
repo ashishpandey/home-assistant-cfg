@@ -1,0 +1,43 @@
+path: power
+title: Power
+theme: dark-mode
+cards:
+  - type: custom:battery-state-card
+    title: Battery Levels
+    secondary_info: "{last_changed}"
+    filter:
+      include:
+        - name: attributes.device_class
+          value: battery
+        - entity_id: attributes.entity
+          value: sensor.camera_box_battery_state 
+    sort:
+      by: "state"
+    collapse: 8
+    bulk_rename:
+      - from: " Battery"
+      - from: " level"
+    colors:
+      steps:
+        - value: 15
+          color: '#ff0000'
+        - value: 40
+          color: '#ff8800'
+        - value: 75
+          color: '#ffff00'
+        - value: 100 
+          color: '#00ff00'
+      gradient: true
+  - type: custom:auto-entities
+    card:
+      type: entities
+      title: Battery Levels
+    filter:
+      include:
+        - entity_id: sensor.*battery*
+          sort:
+            reverse: true
+            method: state
+      exclude:
+        - attributes:
+            device_class: battery

@@ -4,13 +4,25 @@ theater:
     data:
       group_name: "Living Room"
       scene_name: "Theater"
+  - service: light.turn_on
+    target:
+      entity_id: light.living_room_spots
+    data:
+      rgb_color:
+        - 255
+        - 0
+        - 0
+      brightness_pct: 50
   icon: mdi:home-lightbulb
-normal:
+main:
   sequence:
   - service: hue.hue_activate_scene
     data:
       group_name: "Living Room"
-      scene_name: "Normal"
+      scene_name: "Main"
+  - service: light.turn_off
+    target:
+      entity_id: light.living_room_spots
   icon: mdi:home-lightbulb
 cozy:
   sequence:
@@ -18,5 +30,15 @@ cozy:
     data:
       group_name: "Living Room"
       scene_name: "Cozy"
+  - service: light.turn_on
+    target:
+      entity_id: light.living_room_spots
+    data:
+      rgbw_color:
+        - 255
+        - 128
+        - 0
+        - 255
+      brightness_pct: 10
   icon: mdi:home-lightbulb
 
