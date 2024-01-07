@@ -41,4 +41,8 @@ cozy:
         - 255
       brightness_pct: 10
   icon: mdi:home-lightbulb
-
+lr_lights_off:
+  sequence:
+  - service: light.turn_off
+    target:
+      area_id: living_room

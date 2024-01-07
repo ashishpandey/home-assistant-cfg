@@ -75,7 +75,7 @@ tts:
 # Cloud
 cloud:
 
-automation: !include automations.yaml
+automation: !include_dir_merge_list extras/automations/
 script: !include_dir_merge_named extras/scripts/
 group: !include_dir_merge_named extras/groups/
 emulated_hue: !include extras/emulated_hue.yaml

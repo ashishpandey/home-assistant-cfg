@@ -6,7 +6,31 @@ badges:
     name: Temp
   - entity: sensor.dining_room_sensor_illuminance
     name: Lux        
-cards:        
+cards: 
+  - type: glance
+    show_state: false
+    entities:
+      - entity: script.main
+        tap_action:
+          action: call-service
+          service: script.main
+          data: {}
+      - entity: script.cozy
+        tap_action:
+          action: call-service
+          service: script.cozy
+          data: {}
+      - entity: script.theater
+        tap_action:
+          action: call-service
+          service: script.theater
+          data: {}
+      - entity: script.lr_lights_off
+        tap_action:
+          action: call-service
+          service: script.lr_lights_off
+          data: {}
+    title: Scenes
   - type: entities
     entities:
       - entity: light.lr_spots_front_2
@@ -33,9 +57,4 @@ cards:
       - light.dining_lamp
     title: Dining Room
     show_header_toggle: true
-  - type: entities
-    entities:
-      - script.cozy
-      - script.main
-      - script.theater
-    title: Scenes
+

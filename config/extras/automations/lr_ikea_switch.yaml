@@ -1,0 +1,32 @@
+- alias: living room theater button
+  trigger:
+    platform: state
+    entity_id: sensor.0x287681fffe18339d_action
+    to: arrow_left_click
+  action:
+    service: script.theater
+    data: {}
+- alias: living room main button
+  trigger:
+    platform: state
+    entity_id: sensor.0x287681fffe18339d_action
+    to: 'on'
+  action:
+    service: script.main
+    data: {}
+- alias: living room cozy button
+  trigger:
+    platform: state
+    entity_id: sensor.0x287681fffe18339d_action
+    to: arrow_right_click
+  action:
+    service: script.cozy
+    data: {}
+- alias: living room off button
+  trigger:
+    platform: state
+    entity_id: sensor.0x287681fffe18339d_action
+    to: 'off'
+  action:
+    service: script.lr_lights_off
+    data: {}

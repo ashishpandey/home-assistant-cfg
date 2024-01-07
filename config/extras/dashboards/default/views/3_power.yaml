@@ -41,3 +41,12 @@ cards:
       exclude:
         - attributes:
             device_class: battery
+  - type: glance
+    title: Home Power
+    entities:
+      - entity: sensor.efergy_power_usage
+        name: Current
+      - entity: sensor.efergy_monthly_consumption
+        name: Monthly
+      - entity: sensor.efergy_monthly_energy_cost
+        name: Monthly
