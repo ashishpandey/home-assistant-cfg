@@ -61,9 +61,6 @@ history:
 # View all events in a logbook
 logbook:
 
-# Enables a map showing the location of tracked devices
-map:
-
 # Track the sun
 sun:
 
@@ -81,7 +78,7 @@ group: !include_dir_merge_named extras/groups/
 emulated_hue: !include extras/emulated_hue.yaml
 # rest_command: !include_dir_merge_named extras/rest_commands/
 sensor: !include_dir_merge_list extras/sensors/
-# switch: !include_dir_merge_list extras/switches/
+switch: !include_dir_merge_list extras/switches/
 light: !include_dir_merge_list extras/lights/
 mqtt: !include_dir_merge_list extras/mqtt/
 # tplink: !include extras/tplink.yaml

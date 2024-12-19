@@ -25,6 +25,11 @@ cards:
           action: call-service
           service: script.theater
           data: {}
+      - entity: script.white
+        tap_action:
+          action: call-service
+          service: script.white
+          data: {}
       - entity: script.lr_lights_off
         tap_action:
           action: call-service

@@ -41,6 +41,23 @@ cozy:
         - 255
       brightness_pct: 10
   icon: mdi:home-lightbulb
+white:
+  sequence:
+  - service: hue.hue_activate_scene
+    data:
+      group_name: "Living Room"
+      scene_name: "White"
+  - service: light.turn_on
+    target:
+      entity_id: light.living_room_spots
+    data:
+      rgbw_color:
+        - 255
+        - 255
+        - 255
+        - 255
+      brightness_pct: 80
+  icon: mdi:home-lightbulb
 lr_lights_off:
   sequence:
   - service: light.turn_off

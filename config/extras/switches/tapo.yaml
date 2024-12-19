@@ -1,0 +1,9 @@
+- platform: tapo
+  ip_address: 192.168.40.23
+  username: !secret tapo_user
+  password: !secret tapo_pass
+
+- platform: tapo
+  ip_address: 192.168.40.24
+  username: !secret tapo_user
+  password: !secret tapo_pass
