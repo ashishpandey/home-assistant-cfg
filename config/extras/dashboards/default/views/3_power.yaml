@@ -42,11 +42,9 @@ cards:
         - attributes:
             device_class: battery
   - type: glance
-    title: Home Power
+    title: USB Power
     entities:
-      - entity: sensor.efergy_power_usage
-        name: Current
-      - entity: sensor.efergy_monthly_consumption
-        name: Monthly
-      - entity: sensor.efergy_monthly_energy_cost
-        name: Monthly
+      - entity: switch.usb_switch_1_switch
+        name: Zigbee Controller
+      - entity: switch.usb_switch_2_switch
+        name: Cielo Breez Eco
