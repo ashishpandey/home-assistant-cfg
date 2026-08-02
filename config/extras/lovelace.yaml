@@ -1,9 +1,15 @@
-mode: yaml
+mode: storage
+resource_mode: yaml
 resources: !include dashboards/resources.yaml
 dashboards:
-  lovelace-generated: # auto generated
+#   # lovelace-overview:
+#   #   mode: storage
+#   #   title: Overview
+#   #   icon: mdi:view-dashboard
+#   #   show_in_sidebar: true
+  dashboard-default:
     mode: yaml
-    filename: notexist.yaml
-    title: All Entities
-    icon: mdi:tools
+    filename: extras/dashboards/home.yaml
+    title: Home
+    icon: mdi:view-dashboard
     show_in_sidebar: true

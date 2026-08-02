@@ -6,6 +6,15 @@ cards:
     entities:
       - entity: light.bedroom_cove
       - entity: light.candle
+      - entity: group.bedroom_spots
+        type: custom:multiple-entity-row
+        name: Bedroom Spots
+        toggle: true
+        entities:
+          - entity: switch.bedroom_spots_left
+            name: Left
+          - entity: switch.bedroom_spots_right
+            name: Right
       - entity: fan.br_fan
         name: Bedroom Fan
         type: custom:fan-percent-button-row
@@ -25,6 +34,16 @@ cards:
           icon: true
     title: Bed Room
     show_header_toggle: true
+
+  - type: thermostat
+    entity: climate.cooler
+    name: Cooler
+    features:
+      - type: climate-hvac-modes
+        hvac_modes:
+          - "off"
+          - cool
+
   - type: entities
     entities:
       - light.guest_room_fan

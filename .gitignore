@@ -5,6 +5,8 @@ bin/.HA_TOKEN
 # dont ignore subdirectories, so we can recurse
 !*/
 
+.local/
+
 # But not the below
 # !.vscode/*
 # !README.md

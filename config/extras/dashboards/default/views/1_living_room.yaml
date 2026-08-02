@@ -36,14 +36,26 @@ cards:
           service: script.lr_lights_off
           data: {}
     title: Scenes
-  - type: entities
-    entities:
-      - entity: light.lr_spots_front_2
-        name: Front
-      - entity: light.lr_spots_rear_2
-        name: Rear
-    title: LR Spots
-    show_header_toggle: true    
+
+  - type: vertical-stack
+    cards:
+      - type: thermostat
+        entity: climate.ac
+        name: AC
+        features:
+          - type: climate-hvac-modes
+            hvac_modes:
+              - cool
+              - heat
+              - fan_only
+              - dry
+              - heat_cool
+              - "off"
+      - type: entities
+        entities:
+          - entity: binary_sensor.balcony_door_contact
+            name: Balcony Door  
+
   - type: entities
     entities:
       - light.lr_cove_2
@@ -53,13 +65,35 @@ cards:
       - entity: fan.lr_fan
         name: Living Room Fan
         type: custom:fan-percent-button-row
-      # - light.accent_strip
+      - light.tv_light
+      - light.tv_light
     title: Theater Room
     show_header_toggle: true
+
   - type: entities
     entities:
       - light.dining_overhead
       - light.dining_lamp
+      - light.sideboard_light
     title: Dining Room
     show_header_toggle: true
 
+  - type: entities
+    entities:
+      - entity: light.lr_spots_front_2
+        name: Front
+      - entity: light.lr_spots_rear_2
+        name: Rear
+    title: LR Spots
+    show_header_toggle: true  
+
+  - type: entities
+    entities:
+      - light.balcony_light
+    title: Balcony
+  
+  - type: entities
+    entities:
+      - light.corridor_light
+      - light.bathroom_light
+    title: Corridor

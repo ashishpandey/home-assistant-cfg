@@ -13,6 +13,7 @@ homeassistant:
   time_zone: Asia/Hong_Kong
   # Customize 
   customize: !include_dir_merge_named extras/customize/
+  internal_url: http://192.168.1.50:8123
 
 http:
   use_x_forwarded_for: true
@@ -25,6 +26,22 @@ http:
 
 system_health:
 
+default_config:
+# included in default_config, commented out to customize
+# # Allows you to issue voice commands from the frontend in enabled browsers
+# conversation:
+# assist_pipeline:
+# # Cloud
+# cloud:
+# # Enables configuration UI
+# config:
+# # Track the sun
+# sun:
+# # View all events in a logbook
+# logbook:
+# # Enables support for tracking state changes over time
+# history:
+
 # Enables the frontend
 frontend:
   # themes: !include_dir_merge_named themes
@@ -32,9 +49,6 @@ frontend:
 
 # manage frontend in code
 lovelace: !include extras/lovelace.yaml
-
-# Enables configuration UI
-config:
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 # http:
@@ -49,28 +63,12 @@ config:
   # Optional, allows Home Assistant developers to focus on popular components.
   # include_used_components: true
 
-# Allows you to issue voice commands from the frontend in enabled browsers
-conversation:
-assist_pipeline:
-
 intent_script: !include_dir_merge_named extras/intent_scripts/
-
-# Enables support for tracking state changes over time
-history:
-
-# View all events in a logbook
-logbook:
-
-# Track the sun
-sun:
 
 # Text to speech
 tts:
   - platform: google_translate
     service_name: google_say
-
-# Cloud
-cloud:
 
 automation: !include_dir_merge_list extras/automations/
 script: !include_dir_merge_named extras/scripts/

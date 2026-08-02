@@ -8,6 +8,7 @@ exposed_domains:
   - light
   - switch
   - fan
+  - group
 entities:
   light.living_room_spots:
     name: Living Room Spots
@@ -30,3 +31,19 @@ entities:
   script.theater:
     name: Theater Lights
     hidden: false
+  group.bedroom_spots:
+    name: Bedroom Spots
+    hidden: false
+  light.kitchen_light:
+    name: Kitchen Light
+    hidden: false
+  light.bathroom_light:
+    name: Bathroom Light
+    hidden: false
+  light.corridor_light:
+    name: Corridor Light
+    hidden: false
+  light.balcony_light:
+    name: Balcony Light
+    hidden: false
+  

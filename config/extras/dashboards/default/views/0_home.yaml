@@ -12,6 +12,14 @@ cards:
         name: Illumination
   - type: entities
     entities:
+      - light.kitchen_light
+    title: Kitchen
+  - type: entities
+    entities:
+      - light.bathroom_light
+    title: Bathroom
+  - type: entities
+    entities:
       - group.theater_room
       - group.dining_room
       # - group.lr_spots
@@ -20,7 +28,7 @@ cards:
     show_header_toggle: true
   - type: entities
     entities:
-      - group.bed_room
+      - group.bedroom
       - group.guest_room
     title: Bedrooms
     show_header_toggle: true

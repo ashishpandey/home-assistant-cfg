@@ -18,9 +18,15 @@ living_room:
   - group.dining_room
   - group.lr_spots
   # - switch.my_smart_plug
-bed_room:
-  name: Bed Room
+bedroom_spots:
+  name: Bedroom Spots
   entities:
+  - switch.bedroom_spots_left
+  - switch.bedroom_spots_right
+bedroom:
+  name: Bedroom
+  entities:
+  - group.bedroom_spots
   - light.bedroom_cove
   - light.candle
 guest_room:
@@ -28,3 +34,4 @@ guest_room:
   entities:
   - light.guest_room_fan
   - light.diya 
+

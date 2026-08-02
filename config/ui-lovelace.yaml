@@ -1,3 +1,0 @@
-title: Home
-resources: !include extras/dashboards/resources.yaml
-views: !include_dir_list extras/dashboards/default/views
