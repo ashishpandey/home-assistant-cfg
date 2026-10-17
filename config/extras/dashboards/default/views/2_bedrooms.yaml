@@ -1,49 +1,342 @@
 path: bed
 title: Bed Rooms
 icon: mdi:bed-king-outline
-theme: dark-mode
 cards:
-  - type: entities
-    entities:
-      - entity: light.bedroom_cove
-      - entity: light.candle
-      - entity: group.bedroom_spots
-        type: custom:multiple-entity-row
+  - type: vertical-stack
+    cards:
+      - type: custom:mod-card
+        card:
+          type: vertical-stack
+          cards:
+            - type: custom:mushroom-title-card
+              title: Bedroom Scenes
+            - type: horizontal-stack
+              cards:
+                - type: custom:mushroom-template-card
+                  primary: Full
+                  icon: mdi:bed-king
+                  icon_color: amber
+                  layout: vertical
+                  tap_action:
+                    action: call-service
+                    service: scene.turn_on
+                    target:
+                      entity_id: scene.bedroom_bed_full
+                  card_mod:
+                    style: |
+                      ha-card {
+                        background: transparent;
+                        border: 0;
+                        box-shadow: none;
+                      }
+                - type: custom:mushroom-template-card
+                  primary: Relax
+                  icon: mdi:weather-sunset
+                  icon_color: deep-orange
+                  layout: vertical
+                  tap_action:
+                    action: call-service
+                    service: scene.turn_on
+                    target:
+                      entity_id: scene.bedroom_relax
+                  card_mod:
+                    style: |
+                      ha-card {
+                        background: transparent;
+                        border: 0;
+                        box-shadow: none;
+                      }
+                - type: custom:mushroom-template-card
+                  primary: Blur
+                  icon: mdi:blur
+                  icon_color: indigo
+                  layout: vertical
+                  tap_action:
+                    action: call-service
+                    service: scene.turn_on
+                    target:
+                      entity_id: scene.bedroom_blur
+                  card_mod:
+                    style: |
+                      ha-card {
+                        background: transparent;
+                        border: 0;
+                        box-shadow: none;
+                      }
+                - type: custom:mushroom-template-card
+                  primary: Energize
+                  icon: mdi:weather-sunny
+                  icon_color: yellow
+                  layout: vertical
+                  tap_action:
+                    action: call-service
+                    service: scene.turn_on
+                    target:
+                      entity_id: scene.bedroom_energize
+                  card_mod:
+                    style: |
+                      ha-card {
+                        background: transparent;
+                        border: 0;
+                        box-shadow: none;
+                      }
+                - type: custom:mushroom-template-card
+                  primary: Bright
+                  icon: mdi:brightness-7
+                  icon_color: light-blue
+                  layout: vertical
+                  tap_action:
+                    action: call-service
+                    service: scene.turn_on
+                    target:
+                      entity_id: scene.bedroom_bright
+                  card_mod:
+                    style: |
+                      ha-card {
+                        background: transparent;
+                        border: 0;
+                        box-shadow: none;
+                      }
+            - type: horizontal-stack
+              cards:
+                - type: custom:mushroom-template-card
+                  primary: Concentrate
+                  icon: mdi:target
+                  icon_color: blue
+                  layout: vertical
+                  tap_action:
+                    action: call-service
+                    service: scene.turn_on
+                    target:
+                      entity_id: scene.bedroom_concentrate
+                  card_mod:
+                    style: |
+                      ha-card {
+                        background: transparent;
+                        border: 0;
+                        box-shadow: none;
+                      }
+                - type: custom:mushroom-template-card
+                  primary: Nightlight
+                  icon: mdi:weather-night
+                  icon_color: deep-purple
+                  layout: vertical
+                  tap_action:
+                    action: call-service
+                    service: scene.turn_on
+                    target:
+                      entity_id: scene.bedroom_nightlight
+                  card_mod:
+                    style: |
+                      ha-card {
+                        background: transparent;
+                        border: 0;
+                        box-shadow: none;
+                      }
+                - type: custom:mushroom-template-card
+                  primary: Read
+                  icon: mdi:book-open-page-variant
+                  icon_color: green
+                  layout: vertical
+                  tap_action:
+                    action: call-service
+                    service: scene.turn_on
+                    target:
+                      entity_id: scene.bedroom_read
+                  card_mod:
+                    style: |
+                      ha-card {
+                        background: transparent;
+                        border: 0;
+                        box-shadow: none;
+                      }
+                - type: custom:mushroom-template-card
+                  primary: Dimmed
+                  icon: mdi:brightness-5
+                  icon_color: orange
+                  layout: vertical
+                  tap_action:
+                    action: call-service
+                    service: scene.turn_on
+                    target:
+                      entity_id: scene.bedroom_dimmed
+                  card_mod:
+                    style: |
+                      ha-card {
+                        background: transparent;
+                        border: 0;
+                        box-shadow: none;
+                      }
+        card_mod:
+          style: |
+            ha-card {
+              background: var(--ha-card-background, var(--card-background-color));
+              border: var(--ha-card-border, 1px solid var(--divider-color));
+              border-radius: var(--ha-card-border-radius, 12px);
+              overflow: hidden;
+            }
+      - type: custom:auto-entities
+        card:
+          type: entities
+          title: All Bedroom Scenes
+        filter:
+          include:
+            - domain: scene
+              entity_id: "scene.*bedroom*"
+              options:
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  target:
+                    entity_id: this.entity_id
+          exclude:
+            - name: "*Cove*"
+      - type: custom:mushroom-title-card
+        title: Bed Room
+      - type: grid
+        columns: 2
+        square: false
+        cards:
+          - type: custom:mushroom-light-card
+            entity: light.bedroom_cove
+            name: Bedroom Cove
+            use_light_color: true
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+          - type: custom:mushroom-light-card
+            entity: light.candle
+            name: Candle
+            use_light_color: true
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+      - type: custom:bubble-card
+        card_type: button
+        button_type: state
+        entity: group.bedroom_spots
         name: Bedroom Spots
-        toggle: true
-        entities:
+        icon: mdi:lightbulb-group
+        button_action:
+          tap_action:
+            action: toggle
+          hold_action:
+            action: none
+          double_tap_action:
+            action: none
+        tap_action:
+          action: toggle
+        hold_action:
+          action: none
+        double_tap_action:
+          action: none
+        sub_button:
           - entity: switch.bedroom_spots_left
-            name: Left
+            icon: mdi:car-light-high
+            show_name: false
+            show_icon: true
+            show_state: false
+            show_background: false
+            state_background: false
+            tap_action:
+              action: toggle
+            hold_action:
+              action: none
+            double_tap_action:
+              action: none
           - entity: switch.bedroom_spots_right
-            name: Right
-      - entity: fan.br_fan
-        name: Bedroom Fan
-        type: custom:fan-percent-button-row
-      - entity: switch.cooler_power
-        type: custom:multiple-entity-row
-        name: Bedroom AC
-        icon: mdi:air-conditioner
-        toggle: true
-        entities:
-          - entity: sensor.cooler_humidity
-            name: Humidity
-          - entity: sensor.cooler_temperature
-            name: Temp
-        secondary_info:
-          entity: binary_sensor.cooler_status
-          name: false
-          icon: true
-    title: Bed Room
-    show_header_toggle: true
+            icon: mdi:car-light-high
+            show_name: false
+            show_icon: true
+            show_state: false
+            show_background: false
+            state_background: false
+            tap_action:
+              action: toggle
+            hold_action:
+              action: none
+            double_tap_action:
+              action: none
+        modules:
+          - home-assistant-default
+        styles: |
+          ha-card {
+            --bubble-button-border-radius: var(--ha-card-border-radius, 12px) !important;
+            background: var(--ha-card-background, var(--card-background-color)) !important;
+            border: var(--ha-card-border, 1px solid var(--divider-color)) !important;
+            border-radius: var(--ha-card-border-radius, 12px) !important;
+            overflow: hidden !important;
+          }
+          .bubble-button-card-container {
+            background: transparent !important;
+            border-radius: inherit !important;
+          }
+          .bubble-button-background {
+            opacity: 0 !important;
+          }
+          .bubble-icon {
+            color: ${hass.states['group.bedroom_spots']?.state === 'on' ? 'var(--state-switch-on-color, var(--accent-color))' : 'var(--state-inactive-color, var(--secondary-text-color))'} !important;
+          }
+          .bubble-sub-button-1 > ha-icon {
+            transform: rotate(90deg);
+            color: ${hass.states['switch.bedroom_spots_left']?.state === 'on' ? 'var(--state-switch-on-color, var(--accent-color))' : 'var(--state-inactive-color, var(--secondary-text-color))'} !important;
+          }
+          .bubble-sub-button-2 > ha-icon {
+            transform: rotate(-90deg);
+            color: ${hass.states['switch.bedroom_spots_right']?.state === 'on' ? 'var(--state-switch-on-color, var(--accent-color))' : 'var(--state-inactive-color, var(--secondary-text-color))'} !important;
+          }
 
-  - type: thermostat
-    entity: climate.cooler
-    name: Cooler
-    features:
-      - type: climate-hvac-modes
-        hvac_modes:
-          - "off"
-          - cool
+  - type: vertical-stack
+    cards:
+      - type: tile
+        entity: fan.br_fan
+        name: Bedroom Fan
+        features:
+          - type: fan-speed
+      - type: custom:better-thermostat-normal-climate-card
+        entity: climate.cooler
+        name: Bedroom AC
+        features:
+          - type: climate-hvac-modes
+            hvac_modes:
+              - "off"
+              - cool
+        card_mod:
+          style: |
+            p.title {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              padding: 8px 30px 8px 0;
+              text-align: left !important;
+            }
+            p.title::before {
+              content: "";
+              display: block;
+              width: 24px;
+              height: 24px;
+              flex: 0 0 24px;
+              background-color: var(--secondary-text-color);
+              -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0%200%2024%2024'%3E%3Cpath fill='black' d='M6.59.66c2.34-1.81%204.88.4%205.45%203.84c.43%200%20.85.12%201.23.34c.52-.6.98-1.42.8-2.34c-.42-2.15%201.99-3.89%204.28-.92c1.81%202.34-.4%204.88-3.85%205.45c0%20.43-.11.86-.34%201.24c.6.51%201.42.97%202.34.79c2.13-.42%203.88%201.98.91%204.28c-2.34%201.81-4.88-.4-5.45-3.84c-.43%200-.85-.13-1.22-.35c-.52.6-.99%201.43-.81%202.35c.42%202.14-1.99%203.89-4.28.92c-1.82-2.35.4-4.89%203.85-5.45c0-.43.13-.85.35-1.23c-.6-.51-1.42-.98-2.35-.8c-2.13.42-3.88-1.98-.91-4.28M5%2016h2a2%202%200%200%201%202%202v6H7v-2H5v2H3v-6a2%202%200%200%201%202-2m0%202v2h2v-2zm7.93-2H15l-2.93%208H10zM18%2016h3v2h-3v4h3v2h-3a2%202%200%200%201-2-2v-4a2%202%200%200%201%202-2'/%3E%3C/svg%3E") center / contain no-repeat;
+              mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0%200%2024%2024'%3E%3Cpath fill='black' d='M6.59.66c2.34-1.81%204.88.4%205.45%203.84c.43%200%20.85.12%201.23.34c.52-.6.98-1.42.8-2.34c-.42-2.15%201.99-3.89%204.28-.92c1.81%202.34-.4%204.88-3.85%205.45c0%20.43-.11.86-.34%201.24c.6.51%201.42.97%202.34.79c2.13-.42%203.88%201.98.91%204.28c-2.34%201.81-4.88-.4-5.45-3.84c-.43%200-.85-.13-1.22-.35c-.52.6-.99%201.43-.81%202.35c.42%202.14-1.99%203.89-4.28.92c-1.82-2.35.4-4.89%203.85-5.45c0-.43.13-.85.35-1.23c-.6-.51-1.42-.98-2.35-.8c-2.13.42-3.88-1.98-.91-4.28M5%2016h2a2%202%200%200%201%202%202v6H7v-2H5v2H3v-6a2%202%200%200%201%202-2m0%202v2h2v-2zm7.93-2H15l-2.93%208H10zM18%2016h3v2h-3v4h3v2h-3a2%202%200%200%201-2-2v-4a2%202%200%200%201%202-2'/%3E%3C/svg%3E") center / contain no-repeat;
+            }
+            ha-control-circular-slider {
+              position: relative;
+            }
+            ha-control-circular-slider::before {
+              content: "{{ state_translated('binary_sensor.cooler_status') }}";
+              position: absolute;
+              left: 50%;
+              bottom: 32px;
+              transform: translateX(-50%);
+              z-index: 1;
+              color: var(--secondary-text-color);
+              font-size: 1em;
+              pointer-events: none;
+              white-space: nowrap;
+            }
 
   - type: entities
     entities:

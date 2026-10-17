@@ -11,7 +11,7 @@ function call_api() {
   curl -X $1 \
     -H "Authorization: Bearer $(cat ${DIR}/.HA_TOKEN)" \
     -H "Content-Type: application/json" \
-    http://hassio:8123/api/$2 2>/dev/null | json_pp
+    $(cat ${DIR}/.HA_INSTANCE)/api/$2 2>/dev/null | json_pp
 }
 
 case "$1" in

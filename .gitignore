@@ -1,6 +1,7 @@
 # ignore everything
 #*
 bin/.HA_TOKEN
+bin/.HA_INSTANCE
 
 # dont ignore subdirectories, so we can recurse
 !*/

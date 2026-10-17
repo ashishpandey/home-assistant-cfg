@@ -40,7 +40,7 @@ cards:
 
   - type: vertical-stack
     cards:
-      - type: thermostat
+      - type: custom:better-thermostat-normal-climate-card
         entity: climate.ac
         name: AC
         features:
