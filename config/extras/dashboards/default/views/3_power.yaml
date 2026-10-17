@@ -1,5 +1,6 @@
 path: power
 title: Power
+icon: mdi:home-lightning-bolt-outline
 theme: dark-mode
 cards:
   - type: custom:battery-state-card

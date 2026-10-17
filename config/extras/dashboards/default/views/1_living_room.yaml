@@ -1,5 +1,6 @@
 path: living
 title: Living Room
+icon: mdi:sofa-single-outline
 theme: dark-mode
 badges:
   - entity: sensor.dining_room_sensor_temperature

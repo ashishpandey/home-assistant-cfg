@@ -11,3 +11,9 @@
   entities:
   - light.lr_spots_front_2
   - light.lr_spots_rear_2
+- name: Key Lights
+  platform: group
+  unique_id: key_lights
+  entities:
+  - light.bedroom_key_light_1
+  - light.bedroom_key_light_2

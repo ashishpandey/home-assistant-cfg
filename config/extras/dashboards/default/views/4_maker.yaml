@@ -1,0 +1,149 @@
+title: Maker Lab
+path: maker
+icon: mdi:printer-3d
+badges: []
+cards:
+- type: entities
+  entities:
+    - entity: switch.a1_mini_power
+    - entity: switch.a1_mini_accesories_power
+    - entity: sensor.a1_mini_power_power
+- type: picture-glance
+  camera_image: camera.a1_mini_cam_live_view
+  camera_view: live
+  title: A1 mini Build Plate
+  entities:
+    - entity: switch.a1_mini_cam
+      name: Power
+- type: custom:auto-entities
+  card:
+    type: entities
+    title: AirGradient One
+  filter:
+    include:
+      - entity_id: "*airgradient*"
+  sort:
+    method: name
+- type: vertical-stack
+  cards:
+    - type: custom:bubble-card
+      card_type: separator
+      name: AirGradient One
+      icon: mdi:air-filter
+    - type: custom:bubble-card
+      card_type: button
+      button_type: state
+      entity: sensor.bedroom_airgradient_air_quality_index
+      name: Air quality index
+      icon: mdi:air-filter
+    - type: custom:mushroom-title-card
+      title: Indoor climate
+      subtitle: Comfort and ventilation
+    - type: grid
+      columns: 3
+      square: false
+      cards:
+        - type: custom:mushroom-entity-card
+          entity: sensor.airgradient_temperature
+          name: Temperature
+          icon: mdi:thermometer
+          icon_color: deep-orange
+          primary_info: name
+          secondary_info: state
+          layout: vertical
+          tap_action:
+            action: more-info
+        - type: custom:mushroom-entity-card
+          entity: sensor.airgradient_humidity
+          name: Humidity
+          icon: mdi:water-percent
+          icon_color: blue
+          primary_info: name
+          secondary_info: state
+          layout: vertical
+          tap_action:
+            action: more-info
+        - type: custom:mushroom-entity-card
+          entity: sensor.airgradient_senseair_co2_value
+          name: CO2
+          icon: mdi:molecule-co2
+          icon_color: teal
+          primary_info: name
+          secondary_info: state
+          layout: vertical
+          tap_action:
+            action: more-info
+    - type: custom:mushroom-title-card
+      title: Particulate matter
+      subtitle: Particle concentration
+    - type: grid
+      columns: 3
+      square: false
+      cards:
+        - type: custom:mushroom-entity-card
+          entity: sensor.bedroom_airgradient_particulate_matter_1_0mm_concentration
+          name: PM1
+          icon: mdi:blur
+          icon_color: green
+          primary_info: name
+          secondary_info: state
+          layout: vertical
+          tap_action:
+            action: more-info
+        - type: custom:mushroom-entity-card
+          entity: sensor.airgradient_particulate_matter_2_5mm_concentration
+          name: PM2.5
+          icon: mdi:blur
+          icon_color: orange
+          primary_info: name
+          secondary_info: state
+          layout: vertical
+          tap_action:
+            action: more-info
+        - type: custom:mushroom-entity-card
+          entity: sensor.bedroom_airgradient_particulate_matter_10_0mm_concentration
+          name: PM10
+          icon: mdi:blur
+          icon_color: red
+          primary_info: name
+          secondary_info: state
+          layout: vertical
+          tap_action:
+            action: more-info
+    - type: custom:mushroom-title-card
+      title: Gas indexes and uptime
+      subtitle: VOC, NOx and sensor runtime
+    - type: grid
+      columns: 3
+      square: false
+      cards:
+        - type: custom:mushroom-entity-card
+          entity: sensor.bedroom_airgradient_voc_index
+          name: VOC index
+          icon: mdi:air-filter
+          icon_color: amber
+          primary_info: name
+          secondary_info: state
+          layout: vertical
+          tap_action:
+            action: more-info
+        - type: custom:mushroom-entity-card
+          entity: sensor.bedroom_airgradient_nox_index
+          name: NOx index
+          icon: mdi:chemical-weapon
+          icon_color: deep-purple
+          primary_info: name
+          secondary_info: state
+          layout: vertical
+          tap_action:
+            action: more-info
+        - type: custom:mushroom-entity-card
+          entity: sensor.airgradient_airgradient_uptime_2
+          name: Uptime
+          icon: mdi:timer-outline
+          icon_color: cyan
+          primary_info: name
+          secondary_info: state
+          layout: vertical
+          tap_action:
+            action: more-info

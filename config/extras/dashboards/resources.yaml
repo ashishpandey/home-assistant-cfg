@@ -12,3 +12,7 @@
   type: module
 - url: /hacsfiles/battery-state-card/battery-state-card.js
   type: module
+- url: /hacsfiles/Bubble-Card/bubble-card.js
+  type: module
+- url: /hacsfiles/lovelace-mushroom/mushroom.js
+  type: module

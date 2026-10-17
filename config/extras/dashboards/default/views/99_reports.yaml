@@ -1,5 +1,6 @@
 path: reports
 title: Report
+icon: mdi:alert-circle
 theme: dark-mode
 cards:
   - type: markdown

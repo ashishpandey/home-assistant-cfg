@@ -1,0 +1,12 @@
+- alias: Toggle key light when key switch pressed
+  description: Toggle `light.key_lights` when `switch.key_light_switch` is pressed
+  trigger:
+    - platform: mqtt
+      topic: zigbee2mqtt/key_light_switch/action
+      payload: 'single'
+  action:
+    - service: light.toggle
+      target:
+        entity_id: light.key_lights
+  mode: single
+

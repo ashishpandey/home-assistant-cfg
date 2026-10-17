@@ -1,0 +1,11 @@
+cooler_reset:
+  alias: "Sync cooler to off state"
+  description: "Tell Cielo Home that the cooler is off"
+  sequence:
+    - action: cielo_home.sync_ac_state
+      target:
+        entity_id: climate.cooler
+      data:
+        power: "off"
+        mode: "cool"
+        temperature: 22

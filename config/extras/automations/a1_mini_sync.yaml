@@ -1,0 +1,23 @@
+- alias: keep a1 mini camera in sync with printer power switch
+  trigger:
+    # Trigger instantly on changes
+    - trigger: state
+      entity_id: switch.a1_mini_power
+    # Recover after system reboots
+    - trigger: homeassistant
+      event: start
+    # Recover periodically if a signal is missed
+    - trigger: time_pattern
+      minutes: "/30"
+  condition:
+    # Only run if target is out of sync with source
+    - condition: template
+      value_template: "{{ states('switch.a1_mini_cam') != states('switch.a1_mini_power') }}"
+    # Skip if source state is not a known on/off value (prevents 'turn_unknown' calls)
+    - condition: template
+      value_template: "{{ states('switch.a1_mini_power') in ['on','off'] }}"
+  action:
+    # Dynamically match target state to source state
+    - action: "switch.turn_{{ states('switch.a1_mini_power') }}"
+      target:
+        entity_id: switch.a1_mini_cam

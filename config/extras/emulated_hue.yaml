@@ -46,4 +46,6 @@ entities:
   light.balcony_light:
     name: Balcony Light
     hidden: false
-  
+  script.cooler_reset:
+    name: Cooler Reset
+    hidden: false

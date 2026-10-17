@@ -1,5 +1,6 @@
 path: bed
 title: Bed Rooms
+icon: mdi:bed-king-outline
 theme: dark-mode
 cards:
   - type: entities

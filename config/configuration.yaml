@@ -15,12 +15,6 @@ homeassistant:
   customize: !include_dir_merge_named extras/customize/
   internal_url: http://192.168.1.50:8123
 
-http:
-  use_x_forwarded_for: true
-  trusted_proxies:
-    - 192.168.1.1
-    - 192.168.1.215
-
 # Show links to resources in log and frontend
 # introduction:
 
