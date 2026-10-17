@@ -1,2 +1,3 @@
+decluttering_templates: !include templates/decluttering.yaml
 views: !include_dir_list default/views
 

@@ -1,198 +1,87 @@
 path: bed
 title: Bed Rooms
 icon: mdi:bed-king-outline
-cards:
+type: sections
+max_columns: 3
+sections:
+- type: grid
+  cards:
   - type: vertical-stack
     cards:
-      - type: custom:mod-card
-        card:
-          type: vertical-stack
-          cards:
-            - type: custom:mushroom-title-card
-              title: Bedroom Scenes
-            - type: horizontal-stack
-              cards:
-                - type: custom:mushroom-template-card
-                  primary: Full
-                  icon: mdi:bed-king
-                  icon_color: amber
-                  layout: vertical
-                  tap_action:
-                    action: call-service
-                    service: scene.turn_on
-                    target:
-                      entity_id: scene.bedroom_bed_full
-                  card_mod:
-                    style: |
-                      ha-card {
-                        background: transparent;
-                        border: 0;
-                        box-shadow: none;
-                      }
-                - type: custom:mushroom-template-card
-                  primary: Relax
-                  icon: mdi:weather-sunset
-                  icon_color: deep-orange
-                  layout: vertical
-                  tap_action:
-                    action: call-service
-                    service: scene.turn_on
-                    target:
-                      entity_id: scene.bedroom_relax
-                  card_mod:
-                    style: |
-                      ha-card {
-                        background: transparent;
-                        border: 0;
-                        box-shadow: none;
-                      }
-                - type: custom:mushroom-template-card
-                  primary: Blur
-                  icon: mdi:blur
-                  icon_color: indigo
-                  layout: vertical
-                  tap_action:
-                    action: call-service
-                    service: scene.turn_on
-                    target:
-                      entity_id: scene.bedroom_blur
-                  card_mod:
-                    style: |
-                      ha-card {
-                        background: transparent;
-                        border: 0;
-                        box-shadow: none;
-                      }
-                - type: custom:mushroom-template-card
-                  primary: Energize
-                  icon: mdi:weather-sunny
-                  icon_color: yellow
-                  layout: vertical
-                  tap_action:
-                    action: call-service
-                    service: scene.turn_on
-                    target:
-                      entity_id: scene.bedroom_energize
-                  card_mod:
-                    style: |
-                      ha-card {
-                        background: transparent;
-                        border: 0;
-                        box-shadow: none;
-                      }
-                - type: custom:mushroom-template-card
-                  primary: Bright
-                  icon: mdi:brightness-7
-                  icon_color: light-blue
-                  layout: vertical
-                  tap_action:
-                    action: call-service
-                    service: scene.turn_on
-                    target:
-                      entity_id: scene.bedroom_bright
-                  card_mod:
-                    style: |
-                      ha-card {
-                        background: transparent;
-                        border: 0;
-                        box-shadow: none;
-                      }
-            - type: horizontal-stack
-              cards:
-                - type: custom:mushroom-template-card
-                  primary: Concentrate
-                  icon: mdi:target
-                  icon_color: blue
-                  layout: vertical
-                  tap_action:
-                    action: call-service
-                    service: scene.turn_on
-                    target:
-                      entity_id: scene.bedroom_concentrate
-                  card_mod:
-                    style: |
-                      ha-card {
-                        background: transparent;
-                        border: 0;
-                        box-shadow: none;
-                      }
-                - type: custom:mushroom-template-card
-                  primary: Nightlight
-                  icon: mdi:weather-night
-                  icon_color: deep-purple
-                  layout: vertical
-                  tap_action:
-                    action: call-service
-                    service: scene.turn_on
-                    target:
-                      entity_id: scene.bedroom_nightlight
-                  card_mod:
-                    style: |
-                      ha-card {
-                        background: transparent;
-                        border: 0;
-                        box-shadow: none;
-                      }
-                - type: custom:mushroom-template-card
-                  primary: Read
-                  icon: mdi:book-open-page-variant
-                  icon_color: green
-                  layout: vertical
-                  tap_action:
-                    action: call-service
-                    service: scene.turn_on
-                    target:
-                      entity_id: scene.bedroom_read
-                  card_mod:
-                    style: |
-                      ha-card {
-                        background: transparent;
-                        border: 0;
-                        box-shadow: none;
-                      }
-                - type: custom:mushroom-template-card
-                  primary: Dimmed
-                  icon: mdi:brightness-5
-                  icon_color: orange
-                  layout: vertical
-                  tap_action:
-                    action: call-service
-                    service: scene.turn_on
-                    target:
-                      entity_id: scene.bedroom_dimmed
-                  card_mod:
-                    style: |
-                      ha-card {
-                        background: transparent;
-                        border: 0;
-                        box-shadow: none;
-                      }
-        card_mod:
-          style: |
-            ha-card {
-              background: var(--ha-card-background, var(--card-background-color));
-              border: var(--ha-card-border, 1px solid var(--divider-color));
-              border-radius: var(--ha-card-border-radius, 12px);
-              overflow: hidden;
-            }
-      - type: custom:auto-entities
-        card:
-          type: entities
-          title: All Bedroom Scenes
-        filter:
-          include:
-            - domain: scene
-              entity_id: "scene.*bedroom*"
-              options:
-                tap_action:
-                  action: call-service
-                  service: scene.turn_on
-                  target:
-                    entity_id: this.entity_id
-          exclude:
-            - name: "*Cove*"
-      - type: custom:mushroom-title-card
-        title: Bed Room
+      - type: custom:decluttering-card
+        template: mushroom_card_container
+        variables:
+          - cards:
+              - type: custom:mushroom-title-card
+                title: Bedroom Lights
+              - type: horizontal-stack
+                cards:
+                  - type: custom:decluttering-card
+                    template: mushroom_scene
+                    variables:
+                      - name: Full
+                      - icon: mdi:bed-king
+                      - color: amber
+                      - scene: scene.bedroom_bed_full
+                  - type: custom:decluttering-card
+                    template: mushroom_scene
+                    variables:
+                      - name: Relax
+                      - icon: mdi:weather-sunset
+                      - color: deep-orange
+                      - scene: scene.bedroom_relax
+                  - type: custom:decluttering-card
+                    template: mushroom_scene
+                    variables:
+                      - name: Blur
+                      - icon: mdi:blur
+                      - color: indigo
+                      - scene: scene.bedroom_blur
+                  - type: custom:decluttering-card
+                    template: mushroom_scene
+                    variables:
+                      - name: Energize
+                      - icon: mdi:weather-sunny
+                      - color: yellow
+                      - scene: scene.bedroom_energize
+                  - type: custom:decluttering-card
+                    template: mushroom_scene
+                    variables:
+                      - name: Bright
+                      - icon: mdi:brightness-7
+                      - color: light-blue
+                      - scene: scene.bedroom_bright
+              - type: horizontal-stack
+                cards:
+                  - type: custom:decluttering-card
+                    template: mushroom_scene
+                    variables:
+                      - name: Concentrate
+                      - icon: mdi:target
+                      - color: blue
+                      - scene: scene.bedroom_concentrate
+                  - type: custom:decluttering-card
+                    template: mushroom_scene
+                    variables:
+                      - name: Nightlight
+                      - icon: mdi:weather-night
+                      - color: deep-purple
+                      - scene: scene.bedroom_nightlight
+                  - type: custom:decluttering-card
+                    template: mushroom_scene
+                    variables:
+                      - name: Read
+                      - icon: mdi:book-open-page-variant
+                      - color: green
+                      - scene: scene.bedroom_read
+                  - type: custom:decluttering-card
+                    template: mushroom_scene
+                    variables:
+                      - name: Dimmed
+                      - icon: mdi:brightness-5
+                      - color: orange
+                      - scene: scene.bedroom_dimmed
+
       - type: grid
         columns: 2
         square: false
@@ -213,6 +102,7 @@ cards:
               action: toggle
             hold_action:
               action: more-info
+
       - type: custom:bubble-card
         card_type: button
         button_type: state
@@ -288,6 +178,8 @@ cards:
             color: ${hass.states['switch.bedroom_spots_right']?.state === 'on' ? 'var(--state-switch-on-color, var(--accent-color))' : 'var(--state-inactive-color, var(--secondary-text-color))'} !important;
           }
 
+- type: grid
+  cards:
   - type: vertical-stack
     cards:
       - type: tile
@@ -338,14 +230,18 @@ cards:
               white-space: nowrap;
             }
 
-  - type: entities
-    entities:
-      - light.guest_room_fan
-      - light.diya
-    title: Guest Room
-    show_header_toggle: true
-  - type: entities
-    entities:
-      - light.bedroom
-      - light.guest_room
-    title: light
+- type: grid
+  cards:
+  - type: vertical-stack
+    cards:
+      - type: entities
+        entities:
+          - light.guest_room_fan
+          - light.diya
+        title: Guest Room
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - light.bedroom
+          - light.guest_room
+        title: light
