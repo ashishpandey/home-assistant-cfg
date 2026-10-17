@@ -187,48 +187,18 @@ sections:
         name: Bedroom Fan
         features:
           - type: fan-speed
-      - type: custom:better-thermostat-normal-climate-card
-        entity: climate.cooler
-        name: Bedroom AC
-        features:
-          - type: climate-hvac-modes
-            hvac_modes:
-              - "off"
-              - cool
-        card_mod:
-          style: |
-            p.title {
-              display: flex;
-              align-items: center;
-              gap: 8px;
-              padding: 8px 30px 8px 0;
-              text-align: left !important;
-            }
-            p.title::before {
-              content: "";
-              display: block;
-              width: 24px;
-              height: 24px;
-              flex: 0 0 24px;
-              background-color: var(--secondary-text-color);
-              -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0%200%2024%2024'%3E%3Cpath fill='black' d='M6.59.66c2.34-1.81%204.88.4%205.45%203.84c.43%200%20.85.12%201.23.34c.52-.6.98-1.42.8-2.34c-.42-2.15%201.99-3.89%204.28-.92c1.81%202.34-.4%204.88-3.85%205.45c0%20.43-.11.86-.34%201.24c.6.51%201.42.97%202.34.79c2.13-.42%203.88%201.98.91%204.28c-2.34%201.81-4.88-.4-5.45-3.84c-.43%200-.85-.13-1.22-.35c-.52.6-.99%201.43-.81%202.35c.42%202.14-1.99%203.89-4.28.92c-1.82-2.35.4-4.89%203.85-5.45c0-.43.13-.85.35-1.23c-.6-.51-1.42-.98-2.35-.8c-2.13.42-3.88-1.98-.91-4.28M5%2016h2a2%202%200%200%201%202%202v6H7v-2H5v2H3v-6a2%202%200%200%201%202-2m0%202v2h2v-2zm7.93-2H15l-2.93%208H10zM18%2016h3v2h-3v4h3v2h-3a2%202%200%200%201-2-2v-4a2%202%200%200%201%202-2'/%3E%3C/svg%3E") center / contain no-repeat;
-              mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0%200%2024%2024'%3E%3Cpath fill='black' d='M6.59.66c2.34-1.81%204.88.4%205.45%203.84c.43%200%20.85.12%201.23.34c.52-.6.98-1.42.8-2.34c-.42-2.15%201.99-3.89%204.28-.92c1.81%202.34-.4%204.88-3.85%205.45c0%20.43-.11.86-.34%201.24c.6.51%201.42.97%202.34.79c2.13-.42%203.88%201.98.91%204.28c-2.34%201.81-4.88-.4-5.45-3.84c-.43%200-.85-.13-1.22-.35c-.52.6-.99%201.43-.81%202.35c.42%202.14-1.99%203.89-4.28.92c-1.82-2.35.4-4.89%203.85-5.45c0-.43.13-.85.35-1.23c-.6-.51-1.42-.98-2.35-.8c-2.13.42-3.88-1.98-.91-4.28M5%2016h2a2%202%200%200%201%202%202v6H7v-2H5v2H3v-6a2%202%200%200%201%202-2m0%202v2h2v-2zm7.93-2H15l-2.93%208H10zM18%2016h3v2h-3v4h3v2h-3a2%202%200%200%201-2-2v-4a2%202%200%200%201%202-2'/%3E%3C/svg%3E") center / contain no-repeat;
-            }
-            ha-control-circular-slider {
-              position: relative;
-            }
-            ha-control-circular-slider::before {
-              content: "{{ state_translated('binary_sensor.cooler_status') }}";
-              position: absolute;
-              left: 50%;
-              bottom: 32px;
-              transform: translateX(-50%);
-              z-index: 1;
-              color: var(--secondary-text-color);
-              font-size: 1em;
-              pointer-events: none;
-              white-space: nowrap;
-            }
+      - type: custom:decluttering-card
+        template: better_thermostat_with_status
+        variables:
+          - entity: climate.cooler
+          - name: Bedroom AC
+          - features:
+              - type: climate-hvac-modes
+                hvac_modes:
+                  - "off"
+                  - cool
+          - status_entity: binary_sensor.cooler_status
+          - status_prefix: ""
 
 - type: grid
   cards:

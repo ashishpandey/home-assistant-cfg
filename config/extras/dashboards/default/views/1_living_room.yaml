@@ -2,99 +2,108 @@ path: living
 title: Living Room
 icon: mdi:sofa-single-outline
 theme: dark-mode
+type: sections
+max_columns: 3
 badges:
   - entity: sensor.dining_room_sensor_temperature
     name: Temp
   - entity: sensor.dining_room_sensor_illuminance
     name: Lux        
-cards: 
-  - type: glance
-    show_state: false
-    entities:
-      - entity: script.main
-        tap_action:
-          action: call-service
-          service: script.main
-          data: {}
-      - entity: script.cozy
-        tap_action:
-          action: call-service
-          service: script.cozy
-          data: {}
-      - entity: script.theater
-        tap_action:
-          action: call-service
-          service: script.theater
-          data: {}
-      - entity: script.white
-        tap_action:
-          action: call-service
-          service: script.white
-          data: {}
-      - entity: script.lr_lights_off
-        tap_action:
-          action: call-service
-          service: script.lr_lights_off
-          data: {}
-    title: Scenes
-
-  - type: vertical-stack
+sections:
+  - type: grid
     cards:
-      - type: custom:better-thermostat-normal-climate-card
-        entity: climate.ac
-        name: AC
-        features:
-          - type: climate-hvac-modes
-            hvac_modes:
-              - cool
-              - heat
-              - fan_only
-              - dry
-              - heat_cool
-              - "off"
+      - type: custom:decluttering-card
+        template: mushroom_card_container
+        variables:
+          - cards:
+              - type: glance
+                show_state: false
+                entities:
+                  - entity: script.main
+                    tap_action:
+                      action: call-service
+                      service: script.main
+                      data: {}
+                  - entity: script.cozy
+                    tap_action:
+                      action: call-service
+                      service: script.cozy
+                      data: {}
+                  - entity: script.theater
+                    tap_action:
+                      action: call-service
+                      service: script.theater
+                      data: {}
+                  - entity: script.white
+                    tap_action:
+                      action: call-service
+                      service: script.white
+                      data: {}
+                  - entity: script.lr_lights_off
+                    tap_action:
+                      action: call-service
+                      service: script.lr_lights_off
+                      data: {}
+                title: Scenes
       - type: entities
         entities:
-          - entity: binary_sensor.balcony_door_contact
-            name: Balcony Door  
-
-  - type: entities
-    entities:
-      - light.lr_cove_2
-      - light.lr_curtain_strip
-      - light.sofa_light
-      - light.living_room_spots
-      - entity: fan.lr_fan
+          - light.lr_cove_2
+          - light.lr_curtain_strip
+          - light.sofa_light
+          - light.living_room_spots
+          - light.tv_light
+        title: Theater Room
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - entity: light.lr_spots_front_2
+            name: Front
+          - entity: light.lr_spots_rear_2
+            name: Rear
+        title: LR Spots
+        show_header_toggle: true
+  - type: grid
+    cards:
+      - type: tile
+        entity: fan.lr_fan
         name: Living Room Fan
-        type: custom:fan-percent-button-row
-      - light.tv_light
-      - light.tv_light
-    title: Theater Room
-    show_header_toggle: true
-
-  - type: entities
-    entities:
-      - light.dining_overhead
-      - light.dining_lamp
-      - light.sideboard_light
-    title: Dining Room
-    show_header_toggle: true
-
-  - type: entities
-    entities:
-      - entity: light.lr_spots_front_2
-        name: Front
-      - entity: light.lr_spots_rear_2
-        name: Rear
-    title: LR Spots
-    show_header_toggle: true  
-
-  - type: entities
-    entities:
-      - light.balcony_light
-    title: Balcony
-  
-  - type: entities
-    entities:
-      - light.corridor_light
-      - light.bathroom_light
-    title: Corridor
+        features:
+          - type: fan-speed
+        grid_options:
+          columns: full
+      - type: vertical-stack
+        cards:
+          - type: custom:decluttering-card
+            template: better_thermostat_with_status
+            variables:
+              - entity: climate.ac
+              - name: AC
+              - features:
+                  - type: climate-hvac-modes
+                    hvac_modes:
+                      - cool
+                      - heat
+                      - fan_only
+                      - dry
+                      - heat_cool
+                      - "off"
+              - status_entity: binary_sensor.balcony_door_contact
+              - status_prefix: "Balcony Door "
+      - type: entities
+        entities:
+          - light.balcony_light
+        title: Balcony
+  - type: grid
+    cards:
+      - type: entities
+        entities:
+          - light.dining_overhead
+          - light.dining_lamp
+          - light.sideboard_light
+        title: Dining Room
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - light.corridor_light
+          - light.bathroom_light
+        title: Corridor
