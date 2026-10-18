@@ -3,33 +3,28 @@ path: maker
 icon: mdi:printer-3d
 badges: []
 cards:
-- type: entities
-  entities:
-    - entity: switch.a1_mini_power
-    - entity: switch.a1_mini_accesories_power
-    - entity: sensor.a1_mini_power_power
-- type: picture-glance
-  camera_image: camera.a1_mini_cam_live_view
-  camera_view: live
-  title: A1 mini Build Plate
-  entities:
-    - entity: switch.a1_mini_cam
-      name: Power
-- type: custom:auto-entities
-  card:
-    type: entities
-    title: AirGradient One
-  filter:
-    include:
-      - entity_id: "*airgradient*"
-  sort:
-    method: name
+# - type: custom:auto-entities
+#   card:
+#     type: entities
+#     title: AirGradient One
+#   filter:
+#     include:
+#       - entity_id: "*airgradient*"
+#     exclude:
+#       - entity_id: switch.bedroom_airgradient_display_blank_page
+#   sort:
+#     method: name
 - type: vertical-stack
   cards:
-    - type: custom:bubble-card
-      card_type: separator
-      name: AirGradient One
-      icon: mdi:air-filter
+    - type: custom:mushroom-template-card
+      entity: switch.bedroom_airgradient_display_blank_page
+      primary: "{{ 'AirGradient Night Mode' if is_state(entity, 'on') else 'AirGradient Day Mode' }}"
+      secondary: "{{ 'Blank page enabled' if is_state(entity, 'on') else 'Default page enabled' }}"
+      icon: "{{ 'mdi:weather-night' if is_state(entity, 'on') else 'mdi:weather-sunny' }}"
+      icon_color: "{{ 'indigo' if is_state(entity, 'on') else 'amber' }}"
+      tap_action:
+        action: call-service
+        service: script.airgradient_toggle_mode
     - type: custom:bubble-card
       card_type: button
       button_type: state
@@ -147,3 +142,60 @@ cards:
           layout: vertical
           tap_action:
             action: more-info
+- type: vertical-stack
+  cards:
+    - type: custom:bubble-card
+      card_type: separator
+      name: A1 mini
+      icon: mdi:printer-3d
+    - type: grid
+      columns: 3
+      square: false
+      cards:
+        - type: custom:mushroom-entity-card
+          entity: switch.a1_mini_power
+          name: Printer power
+          icon: mdi:power
+          icon_color: teal
+          primary_info: name
+          secondary_info: state
+          layout: vertical
+          tap_action:
+            action: toggle
+        - type: custom:mushroom-entity-card
+          entity: switch.a1_mini_accesories_power
+          name: Accessories
+          icon: mdi:power-socket-us
+          icon_color: blue
+          primary_info: name
+          secondary_info: state
+          layout: vertical
+          tap_action:
+            action: toggle
+        - type: custom:mushroom-entity-card
+          entity: sensor.a1_mini_power_power
+          name: Power usage
+          icon: mdi:lightning-bolt
+          icon_color: amber
+          primary_info: name
+          secondary_info: state
+          layout: vertical
+          tap_action:
+            action: more-info
+    - type: custom:mushroom-entity-card
+      entity: switch.a1_mini_cam
+      name: Build Plate Camera
+      icon: mdi:cctv
+      icon_color: blue
+      primary_info: name
+      secondary_info: state
+      tap_action:
+        action: toggle
+    - type: picture-entity
+      entity: camera.a1_mini_cam_live_view
+      camera_view: live
+      aspect_ratio: "16:9"
+      show_name: false
+      show_state: false
+      tap_action:
+        action: none

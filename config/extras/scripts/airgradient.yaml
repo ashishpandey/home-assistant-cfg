@@ -1,0 +1,46 @@
+airgradient_day_mode:
+  alias: "AirGradient Day Mode"
+  sequence:
+    - action: switch.turn_on
+      target:
+        entity_id: switch.bedroom_airgradient_display_airgradient_default_page
+    - action: switch.turn_off
+      target:
+        entity_id: switch.bedroom_airgradient_display_blank_page
+    - action: number.set_value
+      target:
+        entity_id: number.bedroom_airgradient_led_brightness
+      data:
+        value: 30
+
+airgradient_night_mode:
+  alias: "AirGradient Night Mode"
+  sequence:
+    - action: switch.turn_off
+      target:
+        entity_id: switch.bedroom_airgradient_display_airgradient_default_page
+    - action: switch.turn_on
+      target:
+        entity_id: switch.bedroom_airgradient_display_blank_page
+    - action: number.set_value
+      target:
+        entity_id: number.bedroom_airgradient_led_brightness
+      data:
+        value: 5
+
+airgradient_toggle_mode:
+  alias: "Toggle AirGradient Mode"
+  sequence:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: switch.bedroom_airgradient_display_blank_page
+              state: "on"
+          sequence:
+            - action: script.airgradient_day_mode
+        - conditions:
+            - condition: state
+              entity_id: switch.bedroom_airgradient_display_blank_page
+              state: "off"
+          sequence:
+            - action: script.airgradient_night_mode

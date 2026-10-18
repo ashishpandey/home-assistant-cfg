@@ -1,0 +1,15 @@
+- alias: AirGradient day mode at 6:30 AM
+  trigger:
+    - platform: time
+      at: "06:30:00"
+  action:
+    - service: script.airgradient_day_mode
+  mode: single
+
+- alias: AirGradient night mode at 11:30 PM
+  trigger:
+    - platform: time
+      at: "23:30:00"
+  action:
+    - service: script.airgradient_night_mode
+  mode: single
