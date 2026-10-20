@@ -16,10 +16,10 @@ entities:
   switch.my_smart_plug:
     name: Christmas Light
     hidden: false
-  fan.lr_fan:
+  light.hue_lr_fan:
     name: Living Room Fan
     hidden: false
-  fan.br_fan:
+  light.hue_br_fan:
     name: Bedroom Fan
     hidden: false
   script.main:

@@ -73,4 +73,4 @@ sensor: !include_dir_merge_list extras/sensors/
 switch: !include_dir_merge_list extras/switches/
 light: !include_dir_merge_list extras/lights/
 mqtt: !include_dir_merge_list extras/mqtt/
-# tplink: !include extras/tplink.yaml
+template: !include_dir_merge_list extras/template/

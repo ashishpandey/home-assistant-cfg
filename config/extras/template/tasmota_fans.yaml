@@ -1,0 +1,39 @@
+  - light:
+      - name: "Emulated Living Room Fan"
+        unique_id: hue_lr_fan
+        default_entity_id: light.hue_lr_fan
+        state: "{{ states('fan.lr_fan') }}"
+        turn_on:
+          action: fan.turn_on
+          target:
+            entity_id: fan.lr_fan
+        turn_off:
+          action: fan.turn_off
+          target:
+            entity_id: fan.lr_fan
+        level: "{{ (state_attr('fan.lr_fan', 'percentage') | int(0) / 100 * 255) | int }}"
+        set_level:
+          action: fan.set_percentage
+          target:
+            entity_id: fan.lr_fan
+          data:
+            percentage: "{{ (brightness / 255 * 100) | int }}"
+      - name: "Emulated Bedroom Fan"
+        unique_id: hue_br_fan
+        default_entity_id: light.hue_br_fan
+        state: "{{ states('fan.br_fan') }}"
+        turn_on:
+          action: fan.turn_on
+          target:
+            entity_id: fan.br_fan
+        turn_off:
+          action: fan.turn_off
+          target:
+            entity_id: fan.br_fan
+        level: "{{ (state_attr('fan.br_fan', 'percentage') | int(0) / 100 * 255) | int }}"
+        set_level:
+          action: fan.set_percentage
+          target:
+            entity_id: fan.br_fan
+          data:
+            percentage: "{{ (brightness / 255 * 100) | int }}"

@@ -182,6 +182,16 @@ cards:
           layout: vertical
           tap_action:
             action: more-info
+        - type: custom:mushroom-entity-card
+          entity: light.a1mini_0300ba651400506_chamber_light
+          name: Printer light
+          icon: mdi:lightbulb
+          icon_color: amber
+          primary_info: name
+          secondary_info: state
+          layout: vertical
+          tap_action:
+            action: toggle
     - type: custom:mushroom-entity-card
       entity: switch.a1_mini_cam
       name: Build Plate Camera
@@ -199,3 +209,259 @@ cards:
       show_state: false
       tap_action:
         action: none
+- type: vertical-stack
+  cards:
+    - type: custom:bubble-card
+      card_type: separator
+      name: A1 mini print monitor
+      icon: mdi:printer-3d
+    - type: grid
+      columns: 3
+      square: false
+      cards:
+        - type: custom:mushroom-entity-card
+          entity: sensor.a1mini_0300ba651400506_print_status
+          name: Print status
+          icon: mdi:printer-3d
+          icon_color: teal
+          primary_info: name
+          secondary_info: state
+          layout: vertical
+          tap_action:
+            action: more-info
+        - type: custom:mushroom-entity-card
+          entity: sensor.a1mini_0300ba651400506_task_name
+          name: Current job
+          icon: mdi:layers-triple
+          icon_color: blue
+          primary_info: name
+          secondary_info: state
+          layout: vertical
+          tap_action:
+            action: more-info
+        - type: custom:mushroom-entity-card
+          entity: sensor.a1mini_0300ba651400506_print_progress
+          name: Progress
+          icon: mdi:progress-clock
+          icon_color: amber
+          primary_info: name
+          secondary_info: state
+          layout: vertical
+          tap_action:
+            action: more-info
+    - type: grid
+      columns: 3
+      square: false
+      cards:
+        - type: custom:mushroom-entity-card
+          entity: sensor.a1mini_0300ba651400506_current_layer
+          name: Current layer
+          icon: mdi:layers
+          primary_info: name
+          secondary_info: state
+          layout: vertical
+          tap_action:
+            action: more-info
+        - type: custom:mushroom-entity-card
+          entity: sensor.a1mini_0300ba651400506_total_layer_count
+          name: Total layers
+          icon: mdi:layers-outline
+          primary_info: name
+          secondary_info: state
+          layout: vertical
+          tap_action:
+            action: more-info
+        - type: custom:mushroom-entity-card
+          entity: sensor.a1mini_0300ba651400506_remaining_time
+          name: Time remaining
+          icon: mdi:timer-sand
+          icon_color: deep-orange
+          primary_info: name
+          secondary_info: state
+          layout: vertical
+          tap_action:
+            action: more-info
+    - type: custom:mushroom-title-card
+      title: Print temperatures
+      subtitle: Nozzle and build plate
+    - type: grid
+      columns: 2
+      square: false
+      cards:
+        - type: custom:mushroom-entity-card
+          entity: sensor.a1mini_0300ba651400506_nozzle_temperature
+          name: Nozzle
+          icon: mdi:printer-3d-nozzle-heat
+          icon_color: deep-orange
+          primary_info: name
+          secondary_info: state
+          tap_action:
+            action: more-info
+        - type: custom:mushroom-entity-card
+          entity: sensor.a1mini_0300ba651400506_nozzle_target_temperature
+          name: Nozzle target
+          icon: mdi:thermometer-chevron-up
+          icon_color: orange
+          primary_info: name
+          secondary_info: state
+          tap_action:
+            action: more-info
+        - type: custom:mushroom-entity-card
+          entity: sensor.a1mini_0300ba651400506_bed_temperature
+          name: Build plate
+          icon: mdi:heat-wave
+          icon_color: red
+          primary_info: name
+          secondary_info: state
+          tap_action:
+            action: more-info
+        - type: custom:mushroom-entity-card
+          entity: sensor.a1mini_0300ba651400506_bed_target_temperature
+          name: Build plate target
+          icon: mdi:thermometer-chevron-up
+          icon_color: deep-orange
+          primary_info: name
+          secondary_info: state
+          tap_action:
+            action: more-info
+    - type: grid
+      columns: 3
+      square: false
+      cards:
+        - type: custom:mushroom-entity-card
+          entity: button.a1mini_0300ba651400506_pause
+          name: Pause
+          icon: mdi:pause
+          icon_color: amber
+          tap_action:
+            action: call-service
+            service: button.press
+            target:
+              entity_id: button.a1mini_0300ba651400506_pause
+        - type: custom:mushroom-entity-card
+          entity: button.a1mini_0300ba651400506_resume
+          name: Resume
+          icon: mdi:play
+          icon_color: green
+          tap_action:
+            action: call-service
+            service: button.press
+            target:
+              entity_id: button.a1mini_0300ba651400506_resume
+        - type: custom:mushroom-entity-card
+          entity: button.a1mini_0300ba651400506_stop
+          name: Stop print
+          icon: mdi:stop
+          icon_color: red
+          tap_action:
+            action: call-service
+            service: button.press
+            target:
+              entity_id: button.a1mini_0300ba651400506_stop
+- type: vertical-stack
+  cards:
+    - type: custom:bubble-card
+      card_type: separator
+      name: AMS 2 Pro
+      icon: mdi:spool
+    - type: grid
+      columns: 2
+      square: false
+      cards:
+        - type: custom:mushroom-entity-card
+          entity: binary_sensor.a1mini_0300ba651400506_ams_1_active
+          name: AMS active
+          icon: mdi:spool
+          icon_color: teal
+          primary_info: name
+          secondary_info: state
+          tap_action:
+            action: more-info
+        - type: custom:mushroom-entity-card
+          entity: binary_sensor.a1mini_0300ba651400506_ams_1_drying
+          name: Drying
+          icon: mdi:air-filter
+          icon_color: deep-orange
+          primary_info: name
+          secondary_info: state
+          tap_action:
+            action: more-info
+        - type: custom:mushroom-entity-card
+          entity: sensor.a1mini_0300ba651400506_ams_1_temperature
+          name: AMS temperature
+          icon: mdi:thermometer
+          icon_color: orange
+          primary_info: name
+          secondary_info: state
+          tap_action:
+            action: more-info
+        - type: custom:mushroom-entity-card
+          entity: sensor.a1mini_0300ba651400506_ams_1_humidity
+          name: AMS humidity
+          icon: mdi:water-percent
+          icon_color: blue
+          primary_info: name
+          secondary_info: state
+          tap_action:
+            action: more-info
+        - type: custom:mushroom-entity-card
+          entity: sensor.a1mini_0300ba651400506_ams_1_humidity_index
+          name: Humidity index
+          icon: mdi:water-opacity
+          icon_color: cyan
+          primary_info: name
+          secondary_info: state
+          tap_action:
+            action: more-info
+        - type: custom:mushroom-entity-card
+          entity: sensor.a1mini_0300ba651400506_ams_1_remaining_drying_time
+          name: Drying time left
+          icon: mdi:timer-sand
+          icon_color: amber
+          primary_info: name
+          secondary_info: state
+          tap_action:
+            action: more-info
+    - type: custom:mushroom-title-card
+      title: Filament slots
+      subtitle: Loaded material by tray
+    - type: grid
+      columns: 2
+      square: false
+      cards:
+        - type: custom:mushroom-entity-card
+          entity: sensor.a1mini_0300ba651400506_ams_1_tray_1
+          name: Tray 1
+          icon: mdi:spool
+          icon_color: blue
+          primary_info: name
+          secondary_info: state
+          tap_action:
+            action: more-info
+        - type: custom:mushroom-entity-card
+          entity: sensor.a1mini_0300ba651400506_ams_1_tray_2
+          name: Tray 2
+          icon: mdi:spool
+          icon_color: green
+          primary_info: name
+          secondary_info: state
+          tap_action:
+            action: more-info
+        - type: custom:mushroom-entity-card
+          entity: sensor.a1mini_0300ba651400506_ams_1_tray_3
+          name: Tray 3
+          icon: mdi:spool
+          icon_color: orange
+          primary_info: name
+          secondary_info: state
+          tap_action:
+            action: more-info
+        - type: custom:mushroom-entity-card
+          entity: sensor.a1mini_0300ba651400506_ams_1_tray_4
+          name: Tray 4
+          icon: mdi:spool
+          icon_color: purple
+          primary_info: name
+          secondary_info: state
+          tap_action:
+            action: more-info
